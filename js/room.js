@@ -2,18 +2,11 @@ function Room(){
 	this.map=null;
 	this.layer=null;
 	this.cursors=null;
-	this.sprite=game.add.sprite(200, 150, 'robot');
-	step:0,
-	movable:true,
-	direction:0,
-	this.stay=['robot'];
-	this.left=['left1','left2','left3'];
 	this.help="";
-	currentCharacterFrame:'robot',
 	preload:function(){
 		console.log('preload');
 		game.load.tilemap('map', 'assets/map.csv', null, Phaser.Tilemap.CSV);
-		game.load.image('tiles', 'assets/basictiles.png');
+		game.load.spritesheet('tiles', 'assets/basictiles.png');
 		game.load.image('characters', 'assets/characters.png');
 		console.log('preload end');
 	},
@@ -27,19 +20,13 @@ function Room(){
 		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
 		help.fixedToCamera = true;
 		cursors = game.input.keyboard.createCursorKeys();
-		console.log(this.sprite);
-		this.sprite.anchor.set(0.5,0.5);
-		this.sprite.scale.setTo(2,2);
-		this.sprite.inputEnabled=true;
-		game.camera.follow(this.sprite);
 		game.input.onTap.add(this.onTapping,this);
-		console.log(this.currentCharacterFrame);
 		console.log('create end');
+		console.log("room created");
 	},
 	update:function(){
 		console.log('update');
-		this.sprite.loadTexture(this.currentCharacterFrame);
-		if(this.direction==0){
+	/*	if(this.direction==0){
 			this.currentCharacterFrame=this.animate(this.stay);
 		}else if(this.direction==-1){
 			this.currentCharacterFrame=this.animate(this.left);
@@ -61,11 +48,11 @@ function Room(){
 			this.delayForPopup--;	
 		}
 
-
+*/
 	},
 	animate:function(arrayOfFrames){
 		//animates any number of frames
-		var length=arrayOfFrames.length;
+	/*	var length=arrayOfFrames.length;
 		console.log('1');
 		var frame;
 		console.log('2');
@@ -78,7 +65,7 @@ function Room(){
 			console.log('3');
 			this.step=0;
 		}
-		return frame;
+		return frame;*/
 	},
 	gofull:function(){
 		game.scale.startFullScreen(false);
