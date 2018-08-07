@@ -2,7 +2,7 @@ function Room(){
 	this.map=null,
 	this.layer=null,
 	this.cursors=null,
-	this.help="",
+	this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
 	this.preload=function(){
 		console.log('preload');
 		game.load.tilemap('map', 'assets/map.csv', null, Phaser.Tilemap.CSV);
@@ -17,7 +17,6 @@ function Room(){
 		map.addTilesetImage('tiles');
 		layer = map.createLayer(0);
 		layer.resizeWorld();
-		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
 		help.fixedToCamera = true;
 		cursors = game.input.keyboard.createCursorKeys();
 		game.input.onTap.add(this.onTapping,this);
