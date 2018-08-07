@@ -8,6 +8,7 @@ function Room(){
 	direction:0,
 	this.stay=['robot'];
 	this.left=['left1','left2','left3'];
+	this.help="";
 	currentCharacterFrame:'robot',
 	preload:function(){
 		console.log('preload');
@@ -23,6 +24,8 @@ function Room(){
 		map.addTilesetImage('tiles');
 		layer = map.createLayer(0);
 		layer.resizeWorld();
+		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
+		help.fixedToCamera = true;
 		cursors = game.input.keyboard.createCursorKeys();
 		console.log(this.sprite);
 		this.sprite.anchor.set(0.5,0.5);
