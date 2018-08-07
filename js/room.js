@@ -1,8 +1,8 @@
 function Room(){
-	this.map=null;
-	this.layer=null;
-	this.cursors=null;
-	this.help="";
+	this.map=null,
+	this.layer=null,
+	this.cursors=null,
+	this.help="",
 	preload:function(){
 		console.log('preload');
 		game.load.tilemap('map', 'assets/map.csv', null, Phaser.Tilemap.CSV);
