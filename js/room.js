@@ -3,14 +3,14 @@ function Room(){
 	this.layer=null,
 	this.cursors=null,
 	this.help="",
-	this.preload:function(){
+	this.preload=function(){
 		console.log('preload');
 		game.load.tilemap('map', 'assets/map.csv', null, Phaser.Tilemap.CSV);
 		game.load.spritesheet('tiles', 'assets/basictiles.png');
 		game.load.image('characters', 'assets/characters.png');
 		console.log('preload end');
 	},
-	this.create:function(){
+	this.create=function(){
 		console.log('create start');
 		if (!game.device.desktop){ game.input.onDown.add(this.gofull, this); } //go fullscreen on mobile devices
 		map = game.add.tilemap('map', 16, 16);
@@ -24,7 +24,7 @@ function Room(){
 		console.log('create end');
 		console.log("room created");
 	},
-	this.update:function(){
+	this.update=function(){
 		console.log('update');
 	/*	if(this.direction==0){
 			this.currentCharacterFrame=this.animate(this.stay);
@@ -50,7 +50,7 @@ function Room(){
 
 */
 	},
-	this.animate:function(arrayOfFrames){
+	this.animate=function(arrayOfFrames){
 		//animates any number of frames
 	/*	var length=arrayOfFrames.length;
 		console.log('1');
@@ -67,10 +67,10 @@ function Room(){
 		}
 		return frame;*/
 	},
-	this.gofull:function(){
+	this.gofull=function(){
 		game.scale.startFullScreen(false);
 	},
-	this.onTapping:function(pointer,doubleTap){
+	this.onTapping=function(pointer,doubleTap){
 		console.log("tap");
 		if(this.movable && this.popupOnscreen==false && this.delayForPopup==0){
 			this.movable=false;
@@ -101,7 +101,7 @@ function Room(){
 		//sprite.x=pointer.x;
 
 	},
-	this.noClick:function(){
+	this.noClick=function(){
 		this.popup.destroy();
 		this.yes.destroy();
 		this.no.destroy();
@@ -110,7 +110,7 @@ function Room(){
 		this.delayForPopup=10;
 
 	},
-	this.yesClick:function(){
+	this.yesClick=function(){
 		this.popup.destroy();
 		this.yes.destroy();
 		this.no.destroy();
