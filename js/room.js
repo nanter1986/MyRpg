@@ -18,7 +18,7 @@ function Room(){
 		layer = map.createLayer(0);
 		layer.resizeWorld();
 		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
-		help.fixedToCamera = true;
+		this.help.fixedToCamera = true;
 		cursors = game.input.keyboard.createCursorKeys();
 		game.input.onTap.add(this.onTapping,this);
 		console.log('create end');
