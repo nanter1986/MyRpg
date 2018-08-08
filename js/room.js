@@ -16,10 +16,10 @@ function Room(){
 		console.log('create start');
 		if (!game.device.desktop){ game.input.onDown.add(this.gofull, this); } //go fullscreen on mobile devices
 		this.sprite = game.add.sprite(40, 100, 'char',4);
-		this.sprite.animations.add('left',[15,16,17],10,true);
-		this.sprite.animations.add('right',[27,28,29],10,true);
-		this.sprite.animations.add('down',[3,4,5],10,true);
-		this.sprite.animations.add('up',[39,40,41],10,true);
+		this.sprite.animations.add('left',[15,17],10,true);
+		this.sprite.animations.add('right',[27,29],10,true);
+		this.sprite.animations.add('down',[3,5],10,true);
+		this.sprite.animations.add('up',[39,41],10,true);
 		this.sprite.animations.play('walk', 50, true);
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.setSize(10, 14, 2, 1);
