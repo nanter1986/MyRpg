@@ -27,7 +27,7 @@ function Room(){
 		console.log(this.sprite.animations);
 		this.map = game.add.tilemap('map', 16, 16);
 		this.map.addTilesetImage('tiles');
-		map.setCollisionBetween(0,7);
+		this.map.setCollisionBetween(0,7);
 		this.layer = map.createLayer(0);
 		this.layer.resizeWorld();
 		this.layer.debug = true;
