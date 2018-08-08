@@ -31,7 +31,7 @@ function Room(){
 		this.map.setCollisionBetween(0,7);
 		this.layer = this.map.createLayer(0);
 		this.layer.resizeWorld();
-		this.layer.debug = true;
+		//this.layer.debug = true;
 		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
 		this.help.fixedToCamera = true;
 		this.cursors = game.input.keyboard.createCursorKeys();
