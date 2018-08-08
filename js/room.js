@@ -23,6 +23,7 @@ function Room(){
 		this.sprite.animations.play('walk', 50, true);
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.setSize(10, 14, 2, 1);
+		game.camera.follow(this.sprite);
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
 		this.map = game.add.tilemap('map', 16, 16);
