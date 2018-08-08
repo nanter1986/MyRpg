@@ -18,7 +18,8 @@ function Room(){
 		this.sprite = game.add.sprite(40, 100, 'char');
 		this.sprite.animations.add('walk');
 		this.sprite.animations.play('walk', 50, true);
-		console.log(sprite);
+		console.log(this.sprite);
+		console.log(this.sprite.animations);
 		map = game.add.tilemap('map', 16, 16);
 		map.addTilesetImage('tiles');
 		layer = map.createLayer(0);
