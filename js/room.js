@@ -9,7 +9,7 @@ function Room(){
 		game.load.tilemap('map', 'assets/map.csv', null, Phaser.Tilemap.CSV);
 		game.load.spritesheet('tiles', 'assets/basictiles.png');
 		game.load.image('characters', 'assets/characters.png');
-		game.load.spritesheet('char', 'assets/characters.png', 16, 16, 4,5);
+		game.load.spritesheet('char', 'assets/characters.png', 16, 16, 4);
 		console.log('preload end');
 	},
 	this.create=function(){
@@ -18,6 +18,7 @@ function Room(){
 		this.sprite = game.add.sprite(40, 100, 'char');
 		this.sprite.animations.add('walk');
 		this.sprite.animations.play('walk', 50, true);
+		console.log(sprite);
 		map = game.add.tilemap('map', 16, 16);
 		map.addTilesetImage('tiles');
 		layer = map.createLayer(0);
