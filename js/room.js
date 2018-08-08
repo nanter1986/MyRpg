@@ -15,64 +15,98 @@ function Room(){
 	this.create=function(){
 		console.log('create start');
 		if (!game.device.desktop){ game.input.onDown.add(this.gofull, this); } //go fullscreen on mobile devices
-		this.sprite = game.add.sprite(40, 100, 'char');
-		this.sprite.animations.add('walk');
+		this.sprite = game.add.sprite(40, 100, 'char',4);
+		this.sprite.animations.add('left',[15,16,17],10,true);
+		this.sprite.animations.add('right',[27,28,29],10,true);
+		this.sprite.animations.add('down',[3,4,5],10,true);
+		this.sprite.animations.add('up',[39,40,41],10,true);
 		this.sprite.animations.play('walk', 50, true);
+		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+		sprite.body.setSize(10, 14, 2, 1);
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
-		map = game.add.tilemap('map', 16, 16);
-		map.addTilesetImage('tiles');
-		layer = map.createLayer(0);
-		layer.resizeWorld();
+		this.map = game.add.tilemap('map', 16, 16);
+		this.map.addTilesetImage('tiles');
+		map.setCollisionBetween(0,7);
+		this.layer = map.createLayer(0);
+		this.layer.resizeWorld();
+		this.layer.debug = true;
 		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
 		this.help.fixedToCamera = true;
-		cursors = game.input.keyboard.createCursorKeys();
+		this.cursors = game.input.keyboard.createCursorKeys();
 		game.input.onTap.add(this.onTapping,this);
 		console.log('create end');
 		console.log("room created");
 	},
 	this.update=function(){
 		console.log('update');
-	/*	if(this.direction==0){
-			this.currentCharacterFrame=this.animate(this.stay);
-		}else if(this.direction==-1){
-			this.currentCharacterFrame=this.animate(this.left);
-		}else if(this.direction==1){	
-			this.currentCharacterFrame=this.animate(this.left);
+		game.physics.arcade.collide(this.sprite, this.layer);
+		this.sprite.body.velocity.set(0);
+		if (this.cursors.left.isDown)
+		{
+			this.sprite.body.velocity.x = -100;
+			this.sprite.play('left');
 		}
-		if(this.destination+5<this.sprite.x){
+		else if (this.cursors.right.isDown)
+		{
+			this.sprite.body.velocity.x = 100;
+			this.sprite.play('right');
+		}
+		else if (this.cursors.up.isDown)
+		{
+			this.sprite.body.velocity.y = -100;
+			this.sprite.play('up');
+		}
+		else if (cursors.down.isDown)
+		{
+			this.sprite.body.velocity.y = 100;
+			this.sprite.play('down');
+		}
+		else
+		{
+			player.animations.stop();
+		}
+
+		/*	if(this.direction==0){
+			this.currentCharacterFrame=this.animate(this.stay);
+			}else if(this.direction==-1){
+			this.currentCharacterFrame=this.animate(this.left);
+			}else if(this.direction==1){	
+			this.currentCharacterFrame=this.animate(this.left);
+			}
+			if(this.destination+5<this.sprite.x){
 			this.sprite.x-=5;
 			this.direction=-1;
-		}else if(this.destination-5>this.sprite.x){
+			}else if(this.destination-5>this.sprite.x){
 			this.sprite.x+=5;
 			this.direction=1;
-		}else{
+			}else{
 			this.destination=this.sprite.x;
 			this.movable=true;
 			this.direction=0;
-		}
-		if(this.delayForPopup>0){
+			}
+			if(this.delayForPopup>0){
 			this.delayForPopup--;	
-		}
+			}
 
 */
 	},
 	this.animate=function(arrayOfFrames){
 		//animates any number of frames
-	/*	var length=arrayOfFrames.length;
-		console.log('1');
-		var frame;
-		console.log('2');
-		var index=this.step%length;
-		console.log('step:'+this.step+'/index:'+index+'/length:'+length);
-		frame=arrayOfFrames[index];
-		console.log(frame);
-		this.step++;
-		if(this.step>=length){
+		/*	var length=arrayOfFrames.length;
+			console.log('1');
+			var frame;
+			console.log('2');
+			var index=this.step%length;
+			console.log('step:'+this.step+'/index:'+index+'/length:'+length);
+			frame=arrayOfFrames[index];
+			console.log(frame);
+			this.step++;
+			if(this.step>=length){
 			console.log('3');
 			this.step=0;
-		}
-		return frame;*/
+			}
+			return frame;*/
 	},
 	this.gofull=function(){
 		game.scale.startFullScreen(false);
