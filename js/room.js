@@ -28,7 +28,7 @@ function Room(){
 		this.map = game.add.tilemap('map', 16, 16);
 		this.map.addTilesetImage('tiles');
 		this.map.setCollisionBetween(0,7);
-		this.layer = map.createLayer(0);
+		this.layer = this.map.createLayer(0);
 		this.layer.resizeWorld();
 		this.layer.debug = true;
 		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
