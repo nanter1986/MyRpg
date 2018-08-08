@@ -22,7 +22,7 @@ function Room(){
 		this.sprite.animations.add('up',[39,40,41],10,true);
 		this.sprite.animations.play('walk', 50, true);
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
-		sprite.body.setSize(10, 14, 2, 1);
+		this.sprite.body.setSize(10, 14, 2, 1);
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
 		this.map = game.add.tilemap('map', 16, 16);
@@ -57,14 +57,14 @@ function Room(){
 			this.sprite.body.velocity.y = -100;
 			this.sprite.play('up');
 		}
-		else if (cursors.down.isDown)
+		else if (this.cursors.down.isDown)
 		{
 			this.sprite.body.velocity.y = 100;
 			this.sprite.play('down');
 		}
 		else
 		{
-			player.animations.stop();
+			this.sprite.animations.stop();
 		}
 
 		/*	if(this.direction==0){
