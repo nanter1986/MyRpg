@@ -4,6 +4,14 @@ function Room(){
 	this.cursors=null,
 	this.help =null, 	
 	this.sprite=null,
+	this.left=false;
+	this.right=false;
+	this.up=false;
+	this.down=false;
+	this.firstAction=false;
+	this.secondAction=false;
+	//https://phaser.io/examples/v2/input/virtual-gamecontroller
+	//virtual controller
 	this.preload=function(){
 		console.log('preload');
 		game.load.tilemap('map', 'assets/map.csv', null, Phaser.Tilemap.CSV);
