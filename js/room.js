@@ -15,6 +15,12 @@ function Room(){
 	this.create=function(){
 		console.log('create start');
 		if (!game.device.desktop){ game.input.onDown.add(this.gofull, this); } //go fullscreen on mobile devices
+		this.map = game.add.tilemap('map', 16, 16);
+		this.map.addTilesetImage('tiles');
+		this.map.setCollisionBetween(0,7);
+		this.layer = this.map.createLayer(0);
+		this.layer.resizeWorld();
+		//this.layer.debug = true;
 		this.sprite = game.add.sprite(40, 100, 'char',4);
 		this.sprite.animations.add('left',[15,17],10,true);
 		this.sprite.animations.add('right',[27,29],10,true);
@@ -26,12 +32,6 @@ function Room(){
 		game.camera.follow(this.sprite);
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
-		this.map = game.add.tilemap('map', 16, 16);
-		this.map.addTilesetImage('tiles');
-		this.map.setCollisionBetween(0,7);
-		this.layer = this.map.createLayer(0);
-		this.layer.resizeWorld();
-		//this.layer.debug = true;
 		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
 		this.help.fixedToCamera = true;
 		this.cursors = game.input.keyboard.createCursorKeys();
