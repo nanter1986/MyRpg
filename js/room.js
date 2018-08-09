@@ -135,11 +135,11 @@ function Room(){
 				this.yes.events.onInputDown.add(this.yesClick, this);
 			}
 		}
-		if(this.destination<this.sprite.x){
+		/*if(this.destination<this.sprite.x){
 			this.sprite.scale.x=-2;
 		}else{
 			this.sprite.scale.x=2;	
-		}
+		}*/
 		//sprite.x=pointer.x;
 
 	},
