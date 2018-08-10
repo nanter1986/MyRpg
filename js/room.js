@@ -18,6 +18,11 @@ function Room(){
 		game.load.spritesheet('tiles', 'assets/basictiles.png');
 		game.load.image('characters', 'assets/characters.png');
 		game.load.image('up', 'assets/flatDark02.png');
+		game.load.image('down', 'assets/flatDark09.png');
+		game.load.image('left', 'assets/flatDark04.png');
+		game.load.image('right', 'assets/flatDark05.png');
+		game.load.image('a', 'assets/flatDark35.png');
+		game.load.image('b', 'assets/flatDark36.png');
 		game.load.spritesheet('char', 'assets/characters.png', 16, 16, 96);
 		console.log('preload end');
 	},
