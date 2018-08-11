@@ -114,11 +114,11 @@ function Room(){
 
 */
 	},
-	this.pressedLeft(){
+	this.pressedLeft=function(){
 		this.left=true;
 		console.log("pressed left");
 	},
-	this.pressedRight(){
+	this.pressedRight=function(){
 		this.right=true;
 		console.log("pressed right");
 	},
