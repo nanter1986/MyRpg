@@ -44,12 +44,12 @@ function Room(){
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.setSize(10, 14, 2, 1);
 		game.camera.follow(this.sprite);
-		this.up= game.add.button(600, 600, 'up', null, this, 0, 1, 0, 1);
-		this.down= game.add.button(600, 400, 'down', null, this, 0, 1, 0, 1);
-		this.left= game.add.button(100, 400, 'left', null, this, 0, 1, 0, 1);
-		this.right= game.add.button(300, 400, 'right', null, this, 0, 1, 0, 1);
-		this.firstAction= game.add.button(600, 500, 'a', null, this, 0, 1, 0, 1);
-		this.secondAction= game.add.button(600, 500, 'b', null, this, 0, 1, 0, 1);
+		this.up= game.add.button(600, 600, 'up', null, this);
+		this.down= game.add.button(600, 400, 'down', null, this);
+		this.left= game.add.button(100, 400, 'left', null, this);
+		this.right= game.add.button(300, 400, 'right', null, this);
+		this.firstAction= game.add.button(600, 500, 'a', null, this);
+		this.secondAction= game.add.button(600, 500, 'b', null, this);
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
 		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
