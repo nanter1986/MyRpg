@@ -116,9 +116,11 @@ function Room(){
 	},
 	this.pressedLeft(){
 		this.left=true;
+		console.log("pressed left");
 	},
 	this.pressedRight(){
 		this.right=true;
+		console.log("pressed right");
 	},
 	this.animate=function(arrayOfFrames){
 		//animates any number of frames
