@@ -46,8 +46,8 @@ function Room(){
 		game.camera.follow(this.sprite);
 		this.up= game.add.button(600, 600, 'up', null, this);
 		this.down= game.add.button(600, 400, 'down', null, this);
-		this.left= game.add.button(100, 400, 'left', null, this);
-		this.right= game.add.button(300, 400, 'right', null, this);
+		this.left= game.add.button(100, 400, 'left', this.pressedLeft, this);
+		this.right= game.add.button(300, 400, 'right', this.pressedRight, this);
 		this.firstAction= game.add.button(600, 500, 'a', null, this);
 		this.secondAction= game.add.button(600, 500, 'b', null, this);
 		console.log(this.sprite);
@@ -63,15 +63,17 @@ function Room(){
 		console.log('update');
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
-		if (this.cursors.left.isDown)
+		if (this.cursors.left.isDown || this.left==true)
 		{
 			this.sprite.body.velocity.x = -100;
 			this.sprite.play('left');
+			this.left=false;
 		}
-		else if (this.cursors.right.isDown)
+		else if (this.cursors.right.isDown || this.right==true)
 		{
 			this.sprite.body.velocity.x = 100;
 			this.sprite.play('right');
+			this.right=false;
 		}
 		else if (this.cursors.up.isDown)
 		{
@@ -111,6 +113,12 @@ function Room(){
 			}
 
 */
+	},
+	this.pressedLeft(){
+		this.left=true;
+	},
+	this.pressedRight(){
+		this.right=true;
 	},
 	this.animate=function(arrayOfFrames){
 		//animates any number of frames
