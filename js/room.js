@@ -46,8 +46,8 @@ function Room(){
 		game.camera.follow(this.sprite);
 		this.up= game.add.button(600, 600, 'up', null, this, 0, 1, 0, 1);
 		this.down= game.add.button(600, 400, 'down', null, this, 0, 1, 0, 1);
-		this.left= game.add.button(500, 500, 'left', null, this, 0, 1, 0, 1);
-		this.right= game.add.button(700, 500, 'right', null, this, 0, 1, 0, 1);
+		this.left= game.add.button(100, 400, 'left', null, this, 0, 1, 0, 1);
+		this.right= game.add.button(300, 400, 'right', null, this, 0, 1, 0, 1);
 		this.firstAction= game.add.button(600, 500, 'a', null, this, 0, 1, 0, 1);
 		this.secondAction= game.add.button(600, 500, 'b', null, this, 0, 1, 0, 1);
 		console.log(this.sprite);
