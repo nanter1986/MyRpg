@@ -44,8 +44,8 @@ function Room(){
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.setSize(10, 14, 2, 1);
 		game.camera.follow(this.sprite);
-		this.up= game.add.button(600, 600, 'up', null, this);
-		this.down= game.add.button(600, 400, 'down', null, this);
+		this.up= game.add.button(200, 500, 'up', null, this);
+		this.down= game.add.button(200, 300, 'down', null, this);
 		this.left= game.add.button(100, 400, 'left', this.pressedLeft, this);
 		this.right= game.add.button(300, 400, 'right', this.pressedRight, this);
 		this.firstAction= game.add.button(600, 500, 'a', null, this);
