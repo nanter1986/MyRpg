@@ -48,7 +48,7 @@ function Room(){
 		this.down= game.add.button(200, 300, 'down', null, this);
 		this.left= game.add.button(100, 400, 'left', this.pressedLeft, this);
 		this.right= game.add.button(300, 400, 'right', this.pressedRight, this);
-		this.firstAction= game.add.button(600, 500, 'a', null, this);
+		this.firstAction= game.add.button(400, 500, 'a', null, this);
 		this.secondAction= game.add.button(600, 500, 'b', null, this);
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
