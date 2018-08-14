@@ -78,24 +78,24 @@ function Room(){
 		console.log('update');
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
-		if (this.cursors.left.isDown || this.left==true)
+		if (this.cursors.left.isDown || this.leftActive==true)
 		{
 			this.sprite.body.velocity.x = -100;
 			this.sprite.play('left');
 			this.left=false;
 		}
-		else if (this.cursors.right.isDown || this.right==true)
+		else if (this.cursors.right.isDown || this.rightActive==true)
 		{
 			this.sprite.body.velocity.x = 100;
 			this.sprite.play('right');
 			this.right=false;
 		}
-		else if (this.cursors.up.isDown)
+		else if (this.cursors.up.isDown || this.upActive==true))
 		{
 			this.sprite.body.velocity.y = -100;
 			this.sprite.play('up');
 		}
-		else if (this.cursors.down.isDown)
+		else if (this.cursors.down.isDown || this.downActive==true))
 		{
 			this.sprite.body.velocity.y = 100;
 			this.sprite.play('down');
