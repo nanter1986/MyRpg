@@ -4,12 +4,21 @@ function Room(){
 	this.cursors=null,
 	this.help=null, 	
 	this.sprite=null,
-	this.left=false,
-	this.right=false,
-	this.up=false,
-	this.down=false,
-	this.firstAction=false,
-	this.secondAction=false,
+	//button booleans
+	this.leftActive=false,
+	this.rightActive=false,
+	this.upActive=false,
+	this.downActive=false,
+	this.firstActionActive=false,
+	this.secondActionActive=false,
+	//button variables
+	this.leftButton=null,
+	this.rightButton=null,
+	this.upButton=null,
+	this.downButton=null,
+	this.firstButton=null,
+	this.secondButton=null,
+
 	//https://phaser.io/examples/v2/input/virtual-gamecontroller
 	//virtual controller
 	this.preload=function(){
@@ -44,12 +53,18 @@ function Room(){
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.setSize(10, 14, 2, 1);
 		game.camera.follow(this.sprite);
-		this.up= game.add.button(200, 500, 'up', null, this);
-		this.down= game.add.button(200, 300, 'down', null, this);
-		this.left= game.add.button(100, 400, 'left', this.pressedLeft, this);
-		this.right= game.add.button(300, 400, 'right', this.pressedRight, this);
-		this.firstAction= game.add.button(400, 500, 'a', null, this);
-		this.secondAction= game.add.button(600, 500, 'b', null, this);
+		this.upButton= game.add.button(200, 500, 'up', null, this);
+		this.downButton= game.add.button(200, 300, 'down', null, this);
+		this.leftButton= game.add.button(100, 400, 'left', null, this);
+		this.rightButton= game.add.button(300, 400, 'right', null, this);
+		this.firstActionActive= game.add.button(400, 500, 'a', null, this);
+		this.secondActionActive= game.add.button(600, 500, 'b', null, this);
+		//buttonjump.events.onInputOver.add(function(){jump=true;});
+		//buttonjump.events.onInputOut.add(function(){jump=false;});
+		this.upActive.events.onInputDown.add(function(){this.upButton=true;});
+		this.upActive.events.onInputUp.add(function(){this.upButton=false;});
+		this.downButton.events.onInputDown.add(function(){this.downButton=true;});
+		this.downButton.events.onInputUp.add(function(){this.downButton=false;});
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
 		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
