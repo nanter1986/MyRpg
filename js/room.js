@@ -88,12 +88,12 @@ function Room(){
 			this.sprite.body.velocity.x = 100;
 			this.sprite.play('right');
 		}
-		else if (this.cursors.up.isDown || this.upActive==true))
+		else if (this.cursors.up.isDown || this.upActive==true)
 		{
 			this.sprite.body.velocity.y = -100;
 			this.sprite.play('up');
 		}
-		else if (this.cursors.down.isDown || this.downActive==true))
+		else if (this.cursors.down.isDown || this.downActive==true)
 		{
 			this.sprite.body.velocity.y = 100;
 			this.sprite.play('down');
