@@ -61,8 +61,8 @@ function Room(){
 		this.secondActionActive= game.add.button(600, 500, 'b', null, this);
 		//buttonjump.events.onInputOver.add(function(){jump=true;});
 		//buttonjump.events.onInputOut.add(function(){jump=false;});
-		this.upActive.events.onInputDown.add(function(){this.upButton=true;});
-		this.upActive.events.onInputUp.add(function(){this.upButton=false;});
+		this.upButton.events.onInputDown.add(function(){this.upButton=true;});
+		this.upButton.events.onInputUp.add(function(){this.upButton=false;});
 		this.downButton.events.onInputDown.add(function(){this.downButton=true;});
 		this.downButton.events.onInputUp.add(function(){this.downButton=false;});
 		console.log(this.sprite);
@@ -82,13 +82,11 @@ function Room(){
 		{
 			this.sprite.body.velocity.x = -100;
 			this.sprite.play('left');
-			this.left=false;
 		}
 		else if (this.cursors.right.isDown || this.rightActive==true)
 		{
 			this.sprite.body.velocity.x = 100;
 			this.sprite.play('right');
-			this.right=false;
 		}
 		else if (this.cursors.up.isDown || this.upActive==true))
 		{
