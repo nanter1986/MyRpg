@@ -17,8 +17,8 @@ function Room(){
 		game.load.tilemap('map', 'assets/map.csv', null, Phaser.Tilemap.CSV);
 		game.load.spritesheet('tiles', 'assets/basictiles.png');
 		game.load.image('characters', 'assets/characters.png');
-		game.load.image('up', 'assets/flatDark02.png');
-		game.load.image('down', 'assets/flatDark09.png');
+		game.load.image('up', 'assets/flatDark09.png');
+		game.load.image('down', 'assets/flatDark02.png');
 		game.load.image('left', 'assets/flatDark04.png');
 		game.load.image('right', 'assets/flatDark05.png');
 		game.load.image('a', 'assets/flatDark35.png');
