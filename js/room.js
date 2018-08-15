@@ -61,10 +61,22 @@ function Room(){
 		this.secondActionActive= game.add.button(600, 500, 'b', null, this);
 		//buttonjump.events.onInputOver.add(function(){jump=true;});
 		//buttonjump.events.onInputOut.add(function(){jump=false;});
-		this.upButton.events.onInputDown.add(function(){this.upButton=true;});
-		this.upButton.events.onInputUp.add(function(){this.upButton=false;});
-		this.downButton.events.onInputDown.add(function(){this.downButton=true;});
-		this.downButton.events.onInputUp.add(function(){this.downButton=false;});
+		this.upButton.events.onInputDown.add(function(){
+			this.upButton=true;
+			console.log("up button active");
+		});
+		this.upButton.events.onInputUp.add(function(){
+			this.upButton=false;
+			console.log("up button stopped");
+		});
+		this.downButton.events.onInputDown.add(function(){
+			this.downButton=true;
+			console.log("down button active");
+		});
+		this.downButton.events.onInputUp.add(function(){
+			this.downButton=false;
+			console.log("down button stopped");
+		});
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
 		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
@@ -203,7 +215,5 @@ function Room(){
 		this.popupOnscreen=false;
 		this.delayForPopup=10;
 		game.state.start('outside');
-
-	}
-
+	};
 }
