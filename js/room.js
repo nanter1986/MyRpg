@@ -68,6 +68,7 @@ function Room(){
 		this.upButton.events.onInputUp.add(function(){
 			this.upButton=false;
 			console.log("up button stopped");
+			this.help.text="up button stopped";
 		});
 		this.downButton.events.onInputDown.add(function(){
 			this.downButton=true;
