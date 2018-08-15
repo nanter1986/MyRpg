@@ -43,6 +43,8 @@ function Room(){
 		this.map.setCollisionBetween(0,7);
 		this.layer = this.map.createLayer(0);
 		this.layer.resizeWorld();
+		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
+		this.help.fixedToCamera = true;
 		//this.layer.debug = true;
 		this.sprite = game.add.sprite(40, 100, 'char',4);
 		this.sprite.animations.add('left',[15,17],10,true);
@@ -62,26 +64,24 @@ function Room(){
 		//buttonjump.events.onInputOver.add(function(){jump=true;});
 		//buttonjump.events.onInputOut.add(function(){jump=false;});
 		this.upButton.events.onInputDown.add(function(){
-			this.upButton=true;
+			this.upActive=true;
 			console.log("up button active");
 		});
 		this.upButton.events.onInputUp.add(function(){
-			this.upButton=false;
+			this.upActive=false;
 			console.log("up button stopped");
 			this.help.text="up button stopped";
 		});
 		this.downButton.events.onInputDown.add(function(){
-			this.downButton=true;
+			this.downActive=true;
 			console.log("down button active");
 		});
 		this.downButton.events.onInputUp.add(function(){
-			this.downButton=false;
+			this.downActive=false;
 			console.log("down button stopped");
 		});
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
-		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
-		this.help.fixedToCamera = true;
 		this.cursors = game.input.keyboard.createCursorKeys();
 		game.input.onTap.add(this.onTapping,this);
 		console.log('create end');
