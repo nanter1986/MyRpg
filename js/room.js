@@ -108,6 +108,7 @@ function Room(){
 		}
 		else if (this.cursors.down.isDown || this.downActive==true)
 		{
+			//fix this
 			this.sprite.body.velocity.y = 100;
 			this.sprite.play('down');
 		}
