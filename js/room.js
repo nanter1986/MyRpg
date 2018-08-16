@@ -91,7 +91,7 @@ function Room(){
 		console.log("room created");
 	},
 	this.update=function(){
-		console.log('update');
+		console.log('update/'+this.upActive+this.downActive);
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
 		if (this.cursors.left.isDown || this.leftActive==true)
