@@ -69,7 +69,7 @@ function Room(game){
 			this.help.text="up button sctive";
 		});
 		this.upButton.events.onInputUp.add(function(){
-			this.upActive=false;
+			this.upActive=true;
 			console.log("up button stopped");
 			this.help.text="up button stopped";
 		});
@@ -79,7 +79,7 @@ function Room(game){
 			this.help.text="down button active";
 		});
 		this.downButton.events.onInputUp.add(function(){
-			this.downActive=false;
+			this.downActive=true;
 			console.log("down button stopped");
 			this.help.text="down button stopped";
 		});
