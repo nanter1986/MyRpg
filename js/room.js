@@ -76,7 +76,7 @@ function Room(game){
 			game.debug.text("downActive"+this.downActive, 32, 32);
 		});
 		this.downButton.events.onInputUp.add(function(){
-			this.downActive=true;
+			this.downActive=false;
 			console.log("down button stopped"+this.downActive);
 			game.debug.text("downActive"+this.downActive, 32, 32);
 		});
