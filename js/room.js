@@ -92,12 +92,12 @@ function Room(game){
 		game.debug.text("downActive:"+this.downActive+"/upActive:"+this.upActive, 32, 64);
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
-		if (this.cursors.left.isDown || leftActive===true)
+		if (this.cursors.left.isDown || this.leftActive===true)
 		{
 			this.sprite.body.velocity.x = -100;
 			this.sprite.play('left');
 		}
-		else if (this.cursors.right.isDown || rightActive===true)
+		else if (this.cursors.right.isDown || this.rightActive===true)
 		{
 			this.sprite.body.velocity.x = 100;
 			this.sprite.play('right');
@@ -108,7 +108,7 @@ function Room(game){
 			this.sprite.body.velocity.y = -100;
 			this.sprite.play('up');
 		}
-		else if (this.cursors.down.isDown || downActive===true)
+		else if (this.cursors.down.isDown || this.downActive===true)
 		{
 			//fix this
 			this.sprite.body.velocity.y = 100;
