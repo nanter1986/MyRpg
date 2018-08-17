@@ -2,7 +2,8 @@ function Room(){
 	this.map=null,
 	this.layer=null,
 	this.cursors=null,
-	this.help=null, 	
+	//this.help=null, 	
+	this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
 	this.sprite=null,
 	//button booleans
 	this.leftActive=false,
@@ -43,7 +44,6 @@ function Room(){
 		this.map.setCollisionBetween(0,7);
 		this.layer = this.map.createLayer(0);
 		this.layer.resizeWorld();
-		this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
 		this.help.fixedToCamera = true;
 		//this.layer.debug = true;
 		this.sprite = game.add.sprite(40, 100, 'char',4);
