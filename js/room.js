@@ -124,7 +124,7 @@ function Room(game){
 		}
 		else if (this.cursors.up.isDown || Room.upActive===true)
 		{
-			console.log("inside up else if")
+			console.log("inside up else if");
 			this.sprite.body.velocity.y = -100;
 			this.sprite.play('up');
 		}
