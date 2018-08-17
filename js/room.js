@@ -3,7 +3,7 @@ function Room(){
 	this.layer=null,
 	this.cursors=null,
 	//this.help=null, 	
-	this.help = game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
+	this.help = null;
 	this.sprite=null,
 	//button booleans
 	this.leftActive=false,
@@ -45,6 +45,7 @@ function Room(){
 		this.layer = this.map.createLayer(0);
 		this.layer.resizeWorld();
 		this.help.fixedToCamera = true;
+		this.help=game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
 		//this.layer.debug = true;
 		this.sprite = game.add.sprite(40, 100, 'char',4);
 		this.sprite.animations.add('left',[15,17],10,true);
