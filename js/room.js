@@ -56,8 +56,8 @@ function Room(game){
 		this.downButton= game.add.button(200, 300, 'down', null, this);
 		this.leftButton= game.add.button(100, 400, 'left', null, this);
 		this.rightButton= game.add.button(300, 400, 'right', null, this);
-		this.firstActionActive= game.add.button(400, 500, 'a', null, this);
-		this.secondActionActive= game.add.button(600, 500, 'b', null, this);
+		this.firstButton= game.add.button(400, 500, 'a', null, this);
+		this.secondButton= game.add.button(600, 500, 'b', null, this);
 		//buttonjump.events.onInputOver.add(function(){jump=true;});
 		//buttonjump.events.onInputOut.add(function(){jump=false;});
 		this.upButton.events.onInputDown.add(function(){
