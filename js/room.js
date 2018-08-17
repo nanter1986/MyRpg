@@ -90,7 +90,7 @@ function Room(game){
 	this.update=function(){
 		console.log('update/'+this.upActive+this.downActive);
 		game.physics.arcade.collide(this.sprite, this.layer);
-		game.debug.text('Text Here', 32, 32);
+		game.debug.text('Text Here should go', 32, 32);
 		this.sprite.body.velocity.set(0);
 		if (this.cursors.left.isDown || this.leftActive==true)
 		{
