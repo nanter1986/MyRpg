@@ -44,8 +44,8 @@ function Room(){
 		this.map.setCollisionBetween(0,7);
 		this.layer = this.map.createLayer(0);
 		this.layer.resizeWorld();
-		this.help.fixedToCamera = true;
 		this.help=game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
+		this.help.fixedToCamera = true;
 		//this.layer.debug = true;
 		this.sprite = game.add.sprite(40, 100, 'char',4);
 		this.sprite.animations.add('left',[15,17],10,true);
