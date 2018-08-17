@@ -62,7 +62,7 @@ function Room(game){
 		//buttonjump.events.onInputOut.add(function(){jump=false;});
 		this.upButton.events.onInputDown.add(function(){
 			this.upActive=true;
-			console.log("up button active":"+this.upActive);
+			console.log("up button active:"+this.upActive);
 			game.debug.text("upActive"+this.upActive, 32, 32);
 		});
 		this.upButton.events.onInputUp.add(function(){
