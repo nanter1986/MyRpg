@@ -65,22 +65,22 @@ function Room(game){
 		//buttonjump.events.onInputOut.add(function(){jump=false;});
 		this.upButton.events.onInputDown.add(function(){
 			this.upActive=true;
-			console.log("up button active");
+			console.log("up button active":"+this.upActive);
 			this.help.text="up button sctive";
 		});
 		this.upButton.events.onInputUp.add(function(){
-			this.upActive=true;
-			console.log("up button stopped");
+			this.upActive=false;
+			console.log("up button stopped:"+this.upActive);
 			this.help.text="up button stopped";
 		});
 		this.downButton.events.onInputDown.add(function(){
 			this.downActive=true;
-			console.log("down button active");
+			console.log("down button active"+this.downActive);
 			this.help.text="down button active";
 		});
 		this.downButton.events.onInputUp.add(function(){
 			this.downActive=true;
-			console.log("down button stopped");
+			console.log("down button stopped"+this.downActive);
 			this.help.text="down button stopped";
 		});
 		console.log(this.sprite);
