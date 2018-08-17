@@ -20,7 +20,7 @@ body {
 console.log('start');
 var game = new Phaser.Game(800,600,Phaser.AUTO, '');
 game.state.add('outside',outsideState);
-game.state.add('inside',new Room());
+game.state.add('inside',new Room(game));
 game.state.start('inside');
 		</script>
 
