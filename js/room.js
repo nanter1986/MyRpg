@@ -4,12 +4,12 @@ function Room(game){
 	this.cursors=null;	
 	this.sprite=null;
 	//button booleans
-	this.leftActive=false;
-	this.rightActive=false;
-	this.upActive=false;
-	this.downActive=false;
-	this.firstActionActive=false;
-	this.secondActionActive=false;
+	Room.leftActive=false;
+	Room.rightActive=false;
+	Room.upActive=false;
+	Room.downActive=false;
+	Room.firstActionActive=false;
+	Room.secondActionActive=false;
 	//button variables
 	this.leftButton=null;
 	this.rightButton=null;
@@ -36,7 +36,7 @@ function Room(game){
 	},
 	this.create=function(){
 		console.log('create start');
-		if (!game.device.desktop){ game.input.onDown.add(this.gofull, this); } //go fullscreen on mobile devices
+		if (!game.device.desktop){ game.input.onDown.add(this.goFull, this); } //go fullscreen on mobile devices
 		this.map = game.add.tilemap('map', 16, 16);
 		this.map.addTilesetImage('tiles');
 		this.map.setCollisionBetween(0,7);
@@ -49,7 +49,7 @@ function Room(game){
 		this.sprite.animations.add('down',[3,5],10,true);
 		this.sprite.animations.add('up',[39,41],10,true);
 		this.sprite.animations.play('walk', 50, true);
-		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+        game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.setSize(10, 14, 2, 1);
 		game.camera.follow(this.sprite);
 		this.upButton= game.add.button(200, 300, 'up', null, this);
@@ -63,23 +63,43 @@ function Room(game){
 		this.upButton.events.onInputDown.add(function(){
 			Room.upActive=true;
 			console.log("up button active:"+Room.upActive);
-			game.debug.text("upActive"+this.upActive, 32, 32);
+			game.debug.text("upActive"+Room.upActive, 32, 32);
 		});
 		this.upButton.events.onInputUp.add(function(){
 			Room.upActive=false;
 			console.log("up button stopped:"+Room.upActive);
-			game.debug.text("upActive"+this.upActive, 32, 32);
+			game.debug.text("upActive"+Room.upActive, 32, 32);
 		});
 		this.downButton.events.onInputDown.add(function(){
 			Room.downActive=true;
 			console.log("down button active"+Room.downActive);
-			game.debug.text("downActive"+this.downActive, 32, 32);
+			game.debug.text("downActive"+Room.downActive, 32, 32);
 		});
 		this.downButton.events.onInputUp.add(function(){
 			Room.downActive=false;
 			console.log("down button stopped"+Room.downActive);
-			game.debug.text("downActive"+this.downActive, 32, 32);
+			game.debug.text("downActive"+Room.downActive, 32, 32);
 		});
+        this.rightButton.events.onInputDown.add(function(){
+            Room.rightActive=true;
+            console.log("right button active:"+Room.rightActive);
+            game.debug.text("rightActive"+Room.rightActive, 32, 32);
+        });
+        this.rightButton.events.onInputUp.add(function(){
+            Room.rightActive=false;
+            console.log("right button stopped:"+Room.rightActive);
+            game.debug.text("rightActive"+Room.rightActive, 32, 32);
+        });
+        this.leftButton.events.onInputDown.add(function(){
+            Room.leftActive=true;
+            console.log("left button active"+Room.leftActive);
+            game.debug.text("leftActive"+Room.leftActive, 32, 32);
+        });
+        this.leftButton.events.onInputUp.add(function(){
+            Room.leftActive=false;
+            console.log("left button stopped"+Room.leftActive);
+            game.debug.text("leftActive"+Room.leftActive, 32, 32);
+        });
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
 		this.cursors = game.input.keyboard.createCursorKeys();
@@ -119,7 +139,7 @@ function Room(game){
 			this.sprite.animations.stop();
 		}
 	},
-	this.gofull=function(){
+	this.goFull=function(){
 		game.scale.startFullScreen(false);
 	},
 	this.onTapping=function(pointer,doubleTap){
