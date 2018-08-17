@@ -61,23 +61,23 @@ function Room(game){
 		//buttonjump.events.onInputOver.add(function(){jump=true;});
 		//buttonjump.events.onInputOut.add(function(){jump=false;});
 		this.upButton.events.onInputDown.add(function(){
-			this.upActive=true;
-			console.log("up button active:"+this.upActive);
+			Room.upActive=true;
+			console.log("up button active:"+Room.upActive);
 			game.debug.text("upActive"+this.upActive, 32, 32);
 		});
 		this.upButton.events.onInputUp.add(function(){
-			this.upActive=false;
-			console.log("up button stopped:"+this.upActive);
+			Room.upActive=false;
+			console.log("up button stopped:"+Room.upActive);
 			game.debug.text("upActive"+this.upActive, 32, 32);
 		});
 		this.downButton.events.onInputDown.add(function(){
-			this.downActive=true;
-			console.log("down button active"+this.downActive);
+			Room.downActive=true;
+			console.log("down button active"+Room.downActive);
 			game.debug.text("downActive"+this.downActive, 32, 32);
 		});
 		this.downButton.events.onInputUp.add(function(){
-			this.downActive=false;
-			console.log("down button stopped"+this.downActive);
+			Room.downActive=false;
+			console.log("down button stopped"+Room.downActive);
 			game.debug.text("downActive"+this.downActive, 32, 32);
 		});
 		console.log(this.sprite);
@@ -89,26 +89,26 @@ function Room(game){
 	},
 	this.update=function(){
 		console.log('update/'+this.upActive+this.downActive);
-		game.debug.text("downActive:"+this.downActive+"/upActive:"+this.upActive, 32, 64);
+		game.debug.text("downActive:"+Room.downActive+"/upActive:"+Room.upActive, 32, 64);
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
-		if (this.cursors.left.isDown || this.leftActive===true)
+		if (this.cursors.left.isDown || Room.leftActive===true)
 		{
 			this.sprite.body.velocity.x = -100;
 			this.sprite.play('left');
 		}
-		else if (this.cursors.right.isDown || this.rightActive===true)
+		else if (this.cursors.right.isDown || Room.rightActive===true)
 		{
 			this.sprite.body.velocity.x = 100;
 			this.sprite.play('right');
 		}
-		else if (this.cursors.up.isDown || this.upActive===true)
+		else if (this.cursors.up.isDown || Room.upActive===true)
 		{
 			console.log("inside up else if")
 			this.sprite.body.velocity.y = -100;
 			this.sprite.play('up');
 		}
-		else if (this.cursors.down.isDown || this.downActive===true)
+		else if (this.cursors.down.isDown || Room.downActive===true)
 		{
 			//fix this
 			this.sprite.body.velocity.y = 100;
