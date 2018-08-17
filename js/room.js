@@ -68,14 +68,17 @@ function Room(game){
 		this.upButton.events.onInputUp.add(function(){
 			this.upActive=false;
 			console.log("up button stopped:"+this.upActive);
+			game.debug.text("upActive"+this.upActive, 32, 32);
 		});
 		this.downButton.events.onInputDown.add(function(){
 			this.downActive=true;
 			console.log("down button active"+this.downActive);
+			game.debug.text("downActive"+this.downActive, 32, 32);
 		});
 		this.downButton.events.onInputUp.add(function(){
 			this.downActive=true;
 			console.log("down button stopped"+this.downActive);
+			game.debug.text("downActive"+this.downActive, 32, 32);
 		});
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
