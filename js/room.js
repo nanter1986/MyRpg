@@ -1,9 +1,8 @@
-function Room(){
+function Room(game){
 	this.map=null,
 	this.layer=null,
-	this.cursors=null,
-	//this.help=null, 	
-	this.help = null;
+	this.cursors=null,	
+	this.help = null,
 	this.sprite=null,
 	//button booleans
 	this.leftActive=false,
