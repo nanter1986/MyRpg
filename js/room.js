@@ -106,7 +106,7 @@ function Room(game){
 		game.input.onTap.add(this.onTapping,this);
 		console.log('create end');
 		console.log("room created");
-	},
+	};
 	this.update=function(){
 		console.log('update/'+this.upActive+this.downActive);
 		game.debug.text("downActive:"+Room.downActive+"/upActive:"+Room.upActive, 32, 64);
@@ -138,11 +138,11 @@ function Room(game){
 		{
 			this.sprite.animations.stop();
 		}
-	},
+	};
 	this.goFull=function(){
 		game.scale.startFullScreen(false);
-	},
+	};
 	this.onTapping=function(pointer,doubleTap){
 		console.log("tap/"+pointer.x+"/"+pointer.y);
-	}
+	};
 }
