@@ -61,14 +61,14 @@ function Room(game){
 		//buttonjump.events.onInputOver.add(function(){jump=true;});
 		//buttonjump.events.onInputOut.add(function(){jump=false;});
 		this.upButton.events.onInputDown.add(function(){
-			this.upActive=true;
-			console.log("up button active:"+this.upActive);
-			game.debug.text("upActive"+this.upActive, 32, 32);
+			upActive=true;
+			console.log("up button active:"+upActive);
+			game.debug.text("upActive"+upActive, 32, 32);
 		});
 		this.upButton.events.onInputUp.add(function(){
-			this.upActive=false;
-			console.log("up button stopped:"+this.upActive);
-			game.debug.text("upActive"+this.upActive, 32, 32);
+			upActive=false;
+			console.log("up button stopped:"+upActive);
+			game.debug.text("upActive"+upActive, 32, 32);
 		});
 		this.downButton.events.onInputDown.add(function(){
 			this.downActive=true;
@@ -88,27 +88,27 @@ function Room(game){
 		console.log("room created");
 	},
 	this.update=function(){
-		console.log('update/'+this.upActive+this.downActive);
-		game.debug.text("downActive:"+this.downActive+"/upActive:"+this.upActive, 32, 64);
+		console.log('update/'+upActive+downActive);
+		game.debug.text("downActive:"+this.downActive+"/upActive:"+upActive, 32, 64);
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
-		if (this.cursors.left.isDown || this.leftActive==true)
+		if (this.cursors.left.isDown || leftActive==true)
 		{
 			this.sprite.body.velocity.x = -100;
 			this.sprite.play('left');
 		}
-		else if (this.cursors.right.isDown || this.rightActive==true)
+		else if (this.cursors.right.isDown || rightActive==true)
 		{
 			this.sprite.body.velocity.x = 100;
 			this.sprite.play('right');
 		}
-		else if (this.cursors.up.isDown || this.upActive==true)
+		else if (this.cursors.up.isDown || upActive==true)
 		{
 			console.log("inside up else if")
 			this.sprite.body.velocity.y = -100;
 			this.sprite.play('up');
 		}
-		else if (this.cursors.down.isDown || this.downActive==true)
+		else if (this.cursors.down.isDown || downActive==true)
 		{
 			//fix this
 			this.sprite.body.velocity.y = 100;
