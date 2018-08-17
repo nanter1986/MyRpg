@@ -2,7 +2,6 @@ function Room(game){
 	this.map=null,
 	this.layer=null,
 	this.cursors=null,	
-	this.help = null,
 	this.sprite=null,
 	//button booleans
 	this.leftActive=false,
@@ -43,8 +42,6 @@ function Room(game){
 		this.map.setCollisionBetween(0,7);
 		this.layer = this.map.createLayer(0);
 		this.layer.resizeWorld();
-		this.help=game.add.text(16, 16, 'Arrows to scroll', { font: '14px Arial', fill: '#ffffff' });
-		this.help.fixedToCamera = true;
 		//this.layer.debug = true;
 		this.sprite = game.add.sprite(40, 100, 'char',4);
 		this.sprite.animations.add('left',[15,17],10,true);
@@ -66,22 +63,19 @@ function Room(game){
 		this.upButton.events.onInputDown.add(function(){
 			this.upActive=true;
 			console.log("up button active":"+this.upActive);
-			this.help.text="up button sctive";
+			game.debug.text("upActive"+this.upActive, 32, 32);
 		});
 		this.upButton.events.onInputUp.add(function(){
 			this.upActive=false;
 			console.log("up button stopped:"+this.upActive);
-			this.help.text="up button stopped";
 		});
 		this.downButton.events.onInputDown.add(function(){
 			this.downActive=true;
 			console.log("down button active"+this.downActive);
-			this.help.text="down button active";
 		});
 		this.downButton.events.onInputUp.add(function(){
 			this.downActive=true;
 			console.log("down button stopped"+this.downActive);
-			this.help.text="down button stopped";
 		});
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
@@ -93,6 +87,7 @@ function Room(game){
 	this.update=function(){
 		console.log('update/'+this.upActive+this.downActive);
 		game.physics.arcade.collide(this.sprite, this.layer);
+		game.debug.text('Text Here', 32, 32);
 		this.sprite.body.velocity.set(0);
 		if (this.cursors.left.isDown || this.leftActive==true)
 		{
