@@ -25,8 +25,8 @@ function Room(game){
 		game.load.tilemap('map', 'assets/map.csv', null, Phaser.Tilemap.CSV);
 		game.load.spritesheet('tiles', 'assets/basictiles.png');
 		game.load.image('characters', 'assets/characters.png');
-		game.load.image('up', 'assets/flatDark09.png');
-		game.load.image('down', 'assets/flatDark02.png');
+		game.load.image('up', 'assets/flatDark02.png');
+		game.load.image('down', 'assets/flatDark09.png');
 		game.load.image('left', 'assets/flatDark04.png');
 		game.load.image('right', 'assets/flatDark05.png');
 		game.load.image('a', 'assets/flatDark35.png');
@@ -52,8 +52,8 @@ function Room(game){
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.setSize(10, 14, 2, 1);
 		game.camera.follow(this.sprite);
-		this.upButton= game.add.button(200, 500, 'up', null, this);
-		this.downButton= game.add.button(200, 300, 'down', null, this);
+		this.upButton= game.add.button(200, 300, 'up', null, this);
+		this.downButton= game.add.button(200, 500, 'down', null, this);
 		this.leftButton= game.add.button(100, 400, 'left', null, this);
 		this.rightButton= game.add.button(300, 400, 'right', null, this);
 		this.firstButton= game.add.button(400, 500, 'a', null, this);
