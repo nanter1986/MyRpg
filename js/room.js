@@ -52,10 +52,10 @@ function Room(game){
         game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.setSize(10, 14, 2, 1);
 		game.camera.follow(this.sprite);
-		this.upButton= game.add.button(35, 300, 'up', null, this);
-		this.downButton= game.add.button(35, 500, 'down', null, this);
+		this.upButton= game.add.button(35, 380, 'up', null, this);
+		this.downButton= game.add.button(35, 450, 'down', null, this);
 		this.leftButton= game.add.button(10, 400, 'left', null, this);
-		this.rightButton= game.add.button(60, 400, 'right', null, this);
+		this.rightButton= game.add.button(80, 400, 'right', null, this);
 		this.firstButton= game.add.button(550, 500, 'a', null, this);
 		this.secondButton= game.add.button(600, 500, 'b', null, this);
 		//buttonjump.events.onInputOver.add(function(){jump=true;});
