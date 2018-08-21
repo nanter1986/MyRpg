@@ -40,6 +40,8 @@ function Room(game){
 		this.map = game.add.tilemap('map', 16, 16);
 		this.map.addTilesetImage('tiles');
 		this.map.setCollisionBetween(0,7);
+		map.setTileIndexCallback(26, enterDoor, this);
+		// https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/tile%20callbacks.js
 		this.layer = this.map.createLayer(0);
 		this.layer.resizeWorld();
 		//this.layer.debug = true;
@@ -49,7 +51,7 @@ function Room(game){
 		this.sprite.animations.add('down',[3,5],10,true);
 		this.sprite.animations.add('up',[39,41],10,true);
 		this.sprite.animations.play('walk', 50, true);
-        game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.setSize(10, 14, 2, 1);
 		game.camera.follow(this.sprite);
 		this.upButton= game.add.button(50, 380, 'up', null, this);
