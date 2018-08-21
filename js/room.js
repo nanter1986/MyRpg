@@ -40,7 +40,7 @@ function Room(game){
 		this.map = game.add.tilemap('map', 16, 16);
 		this.map.addTilesetImage('tiles');
 		this.map.setCollisionBetween(0,7);
-		map.setTileIndexCallback(26, enterDoor, this);
+		map.setTileIndexCallback(48, enterDoor, this);
 		// https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/tile%20callbacks.js
 		this.layer = this.map.createLayer(0);
 		this.layer.resizeWorld();
@@ -146,5 +146,8 @@ function Room(game){
 	};
 	this.onTapping=function(pointer,doubleTap){
 		console.log("tap/"+pointer.x+"/"+pointer.y);
+	};
+	this.enterDoor=function(){
+		game.debug.text("touched door", 32, 96);
 	};
 }
