@@ -1,5 +1,5 @@
 function Room(game){
-	this.map=null;
+	Room.map=null;
 	this.layer=null;
 	this.cursors=null;	
 	this.sprite=null;
@@ -37,12 +37,12 @@ function Room(game){
 	this.create=function(){
 		console.log('create start');
 		if (!game.device.desktop){ game.input.onDown.add(this.goFull, this); } //go fullscreen on mobile devices
-		this.map = game.add.tilemap('map', 16, 16);
-		this.map.addTilesetImage('tiles');
-		this.map.setCollisionBetween(0,7);
-		map.setTileIndexCallback(48, enterDoor, this);
+		Room.map = game.add.tilemap('map', 16, 16);
+		Room.map.addTilesetImage('tiles');
+		Room.map.setCollisionBetween(0,7);
+		Room.map.setTileIndexCallback(48, enterDoor, this);
 		// https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/tile%20callbacks.js
-		this.layer = this.map.createLayer(0);
+		this.layer = Room.map.createLayer(0);
 		this.layer.resizeWorld();
 		//this.layer.debug = true;
 		this.sprite = game.add.sprite(40, 100, 'char',4);
