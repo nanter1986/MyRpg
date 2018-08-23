@@ -147,7 +147,7 @@ function Room(game){
 	this.onTapping=function(pointer,doubleTap){
 		console.log("tap/"+pointer.x+"/"+pointer.y);
 	};
-	this.enterDoor=function(){
+	Room.enterDoor=function(){
 		game.debug.text("touched door", 32, 96);
 	};
 }
