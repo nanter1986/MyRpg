@@ -40,7 +40,7 @@ function Room(game){
 		Room.map = game.add.tilemap('map', 16, 16);
 		Room.map.addTilesetImage('tiles');
 		Room.map.setCollisionBetween(0,7);
-		Room.map.setTileIndexCallback(48, enterDoor, this);
+		Room.map.setTileIndexCallback(48, Room.enterDoor, this);
 		// https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/tile%20callbacks.js
 		this.layer = Room.map.createLayer(0);
 		this.layer.resizeWorld();
