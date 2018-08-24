@@ -103,15 +103,19 @@ function Room(game){
             game.debug.text("leftActive"+Room.leftActive, 32, 32);
         });
         this.firstButton.events.onInputDown.add(function(){
+        	Room.firstActionActive=true;
             game.debug.text("firstActive"+Room.firstActionActive, 32, 32);
         });
         this.firstButton.events.onInputUp.add(function(){
+        	Room.firstActionActive=false;
             game.debug.text("firstActive"+Room.firstActionActive, 32, 32);
         });
         this.secondButton.events.onInputDown.add(function(){
+        	Room.secondActionActive=true;
             game.debug.text("secondActive"+Room.secondActionActive, 32, 32);
         });
         this.secondButton.events.onInputUp.add(function(){
+        	Room.secondActionActive=false;
             game.debug.text("secondActive"+Room.secondActionActive, 32, 32);
         });
 		console.log(this.sprite);
