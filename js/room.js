@@ -150,5 +150,7 @@ function Room(game){
 	Room.enterDoor=function(){
 		game.debug.text("touched door", 32, 96);
 		//door should lead to next room
-	};
+        game.state.start('inside');
+
+    };
 }
