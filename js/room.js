@@ -33,7 +33,7 @@ function Room(game){
 		game.load.image('b', 'assets/flatDark36.png');
 		game.load.spritesheet('char', 'assets/characters.png', 16, 16, 96);
 		console.log('preload end');
-	},
+	};
 	this.create=function(){
 		console.log('create start');
 		if (!game.device.desktop){ game.input.onDown.add(this.goFull, this); } //go fullscreen on mobile devices
@@ -101,6 +101,18 @@ function Room(game){
             Room.leftActive=false;
             console.log("left button stopped"+Room.leftActive);
             game.debug.text("leftActive"+Room.leftActive, 32, 32);
+        });
+        this.firstButton.events.onInputDown.add(function(){
+            game.debug.text("firstActive"+Room.firstActionActive, 32, 32);
+        });
+        this.firstButton.events.onInputUp.add(function(){
+            game.debug.text("firstActive"+Room.firstActionActive, 32, 32);
+        });
+        this.secondButton.events.onInputDown.add(function(){
+            game.debug.text("secondActive"+Room.secondActionActive, 32, 32);
+        });
+        this.secondButton.events.onInputUp.add(function(){
+            game.debug.text("secondActive"+Room.secondActionActive, 32, 32);
         });
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
