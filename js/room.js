@@ -3,6 +3,7 @@ function Room(game){
 	this.layer=null;
 	this.cursors=null;	
 	this.sprite=null;
+	Room.music=null;
 	//button booleans
 	Room.leftActive=false;
 	Room.rightActive=false;
@@ -32,6 +33,8 @@ function Room(game){
 		game.load.image('a', 'assets/flatDark35.png');
 		game.load.image('b', 'assets/flatDark36.png');
 		game.load.spritesheet('char', 'assets/characters.png', 16, 16, 96);
+		// https://github.com/photonstorm/phaser-examples/blob/master/examples/audio/play%20music.js
+		game.load.audio('boden', ['assets/stormApproaching.mid']);
 		console.log('preload end');
 	};
 	this.create=function(){
@@ -54,6 +57,8 @@ function Room(game){
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.setSize(10, 14, 2, 1);
 		game.camera.follow(this.sprite);
+		Room.music = game.add.audio('boden');
+		Room.music.play();
 		this.upButton= game.add.button(70, 420, 'up', null, this);
 		this.downButton= game.add.button(70, 500, 'down', null, this);
 		this.leftButton= game.add.button(10, 400, 'left', null, this);
