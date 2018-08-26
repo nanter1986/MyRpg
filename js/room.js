@@ -133,6 +133,7 @@ function Room(game){
 	this.update=function(){
 		console.log('update/'+this.upActive+this.downActive);
 		game.debug.text("downActive:"+Room.downActive+"/upActive:"+Room.upActive, 32, 64);
+		game.debug.soundInfo(Room.music, 20, 96);
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
 		if (this.cursors.left.isDown || Room.leftActive===true)
