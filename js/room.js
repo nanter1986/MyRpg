@@ -34,7 +34,7 @@ function Room(game){
 		game.load.image('b', 'assets/flatDark36.png');
 		game.load.spritesheet('char', 'assets/characters.png', 16, 16, 96);
 		// https://github.com/photonstorm/phaser-examples/blob/master/examples/audio/play%20music.js
-		game.load.audio('boden', 'assets/stormApproaching.mid');
+		game.load.audio('boden', 'assets/dustymemories.mp3');
 		console.log('preload end');
 	};
 	this.create=function(){
