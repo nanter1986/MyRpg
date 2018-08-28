@@ -18,6 +18,8 @@ function Room(game){
 	this.downButton=null;
 	this.firstButton=null;
 	this.secondButton=null;
+	//characters
+    Room.player=null;
 
 	//https://phaser.io/examples/v2/input/virtual-gamecontroller
 	//virtual controller
@@ -49,14 +51,18 @@ function Room(game){
 		this.layer.resizeWorld();
 		//this.layer.debug = true;
 		this.sprite = game.add.sprite(40, 100, 'char',4);
-		this.sprite.animations.add('left',[15,17],10,true);
+		var chData={
+		    'level':1
+        }
+		Room.player=new Player('nanter',this.sprite,chData);
+		/*this.sprite.animations.add('left',[15,17],10,true);
 		this.sprite.animations.add('right',[27,29],10,true);
 		this.sprite.animations.add('down',[3,5],10,true);
 		this.sprite.animations.add('up',[39,41],10,true);
-		this.sprite.animations.play('walk', 50, true);
-		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
-		this.sprite.body.setSize(10, 14, 2, 1);
-		game.camera.follow(this.sprite);
+		this.sprite.animations.play('walk', 50, true);*/
+		game.physics.enable(Room.player.sprite, Phaser.Physics.ARCADE);
+        Room.player.sprite.body.setSize(10, 14, 2, 1);
+		game.camera.follow(Room.player.sprite);
 		Room.music = game.add.audio('boden');
 		Room.music.play();
 		this.upButton= game.add.button(70, 420, 'up', null, this);
@@ -134,33 +140,38 @@ function Room(game){
 		console.log('update/'+this.upActive+this.downActive);
 		game.debug.text("downActive:"+Room.downActive+"/upActive:"+Room.upActive, 32, 64);
 		game.debug.soundInfo(Room.music, 20, 96);
+        game.debug.text('level:'+Room.player.level,32,128);
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
 		if (this.cursors.left.isDown || Room.leftActive===true)
 		{
-			this.sprite.body.velocity.x = -100;
-			this.sprite.play('left');
+            Room.player.sprite.body.velocity.x = -100;
+            Room.player.level+=1;
+            Room.player.sprite.play('left');
 		}
 		else if (this.cursors.right.isDown || Room.rightActive===true)
 		{
-			this.sprite.body.velocity.x = 100;
-			this.sprite.play('right');
+            Room.player.sprite.body.velocity.x = 100;
+            Room.player.level+=1;
+            Room.player.sprite.play('right');
 		}
 		else if (this.cursors.up.isDown || Room.upActive===true)
 		{
 			console.log("inside up else if");
-			this.sprite.body.velocity.y = -100;
-			this.sprite.play('up');
+            Room.player.sprite.body.velocity.y = -100;
+            Room.player.level+=1;
+            Room.player.sprite.play('up');
 		}
 		else if (this.cursors.down.isDown || Room.downActive===true)
 		{
 			//fix this
-			this.sprite.body.velocity.y = 100;
-			this.sprite.play('down');
+            Room.player.sprite.body.velocity.y = 100;
+            Room.player.level+=1;
+            Room.player.sprite.play('down');
 		}
 		else
 		{
-			this.sprite.animations.stop();
+            Room.player.sprite.animations.stop();
 		}
 	};
 	this.goFull=function(){
