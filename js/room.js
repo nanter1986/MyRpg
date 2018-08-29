@@ -36,7 +36,7 @@ function Room(game){
 		game.load.image('b', 'assets/flatDark36.png');
 		game.load.spritesheet('char', 'assets/characters.png', 16, 16, 96);
 		// https://github.com/photonstorm/phaser-examples/blob/master/examples/audio/play%20music.js
-		game.load.audio('boden', 'assets/dustymemories.mp3');
+		//game.load.audio('boden', 'assets/dustymemories.mp3');
 		console.log('preload end');
 	};
 	this.create=function(){
@@ -61,10 +61,10 @@ function Room(game){
 		this.sprite.animations.add('up',[39,41],10,true);
 		this.sprite.animations.play('walk', 50, true);*/
 		game.physics.enable(Room.player.sprite, Phaser.Physics.ARCADE);
-        Room.player.sprite.body.setSize(10, 14, 2, 1);
+        	Room.player.sprite.body.setSize(10, 14, 2, 1);
 		game.camera.follow(Room.player.sprite);
-		Room.music = game.add.audio('boden');
-		Room.music.play();
+		//Room.music = game.add.audio('boden');
+		//Room.music.play();
 		this.upButton= game.add.button(70, 420, 'up', null, this);
 		this.downButton= game.add.button(70, 500, 'down', null, this);
 		this.leftButton= game.add.button(10, 400, 'left', null, this);
@@ -139,7 +139,7 @@ function Room(game){
 	this.update=function(){
 		console.log('update/'+this.upActive+this.downActive);
 		game.debug.text("downActive:"+Room.downActive+"/upActive:"+Room.upActive, 32, 64);
-		game.debug.soundInfo(Room.music, 20, 96);
+		//game.debug.soundInfo(Room.music, 20, 96);
         game.debug.text('level:'+Room.player.level,32,128);
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
