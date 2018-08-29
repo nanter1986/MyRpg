@@ -53,7 +53,7 @@ function Room(game){
 		this.sprite = game.add.sprite(40, 100, 'char',4);
 		var chData={
 		    'level':1
-        }
+        	};
 		Room.player=new Player('nanter',this.sprite,chData);
 		/*this.sprite.animations.add('left',[15,17],10,true);
 		this.sprite.animations.add('right',[27,29],10,true);
