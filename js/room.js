@@ -52,7 +52,7 @@ function Room(game){
 		//this.layer.debug = true;
 		this.sprite = game.add.sprite(40, 100, 'char',4);
 		var chData=null;
-		if(Room.loadData()!=null){
+		if(Room.loadData()==null){
 			chData={
 				'level':1
 			};
