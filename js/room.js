@@ -186,11 +186,14 @@ function Room(game){
 		// Put the object into storage
 		localStorage.setItem('testObject', JSON.stringify(testObject));
 
+	};
+	Room.loadData=function(){
 		// Retrieve the object from storage
 		var retrievedObject = localStorage.getItem('testObject');
 
 		console.log('retrievedObject: ', JSON.parse(retrievedObject));
 
+	
 	};
 	Room.enterDoor=function(){
 		game.debug.text("touched door", 32, 96);
