@@ -51,9 +51,15 @@ function Room(game){
 		this.layer.resizeWorld();
 		//this.layer.debug = true;
 		this.sprite = game.add.sprite(40, 100, 'char',4);
-		var chData={
-			'level':1
-		};
+		var chData=null;
+		if(Room.loadData()!=null){
+			chData={
+				'level':1
+			};
+
+		}else{
+			chData=Room.loadData();	
+		}
 		Room.player=new Player('nanter',this.sprite,chData);
 		/*this.sprite.animations.add('left',[15,17],10,true);
 		this.sprite.animations.add('right',[27,29],10,true);
@@ -181,19 +187,16 @@ function Room(game){
 		console.log("tap/"+pointer.x+"/"+pointer.y);
 	};
 	Room.saveData=function(){
-		var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-
+		var testObject = Room.player.chData;
+		console.log('testObject:'+testObject);
 		// Put the object into storage
-		localStorage.setItem('testObject', JSON.stringify(testObject));
-
+		localStorage.setItem('player', JSON.stringify(testObject));
 	};
 	Room.loadData=function(){
 		// Retrieve the object from storage
-		var retrievedObject = localStorage.getItem('testObject');
-
+		var retrievedObject = localStorage.getItem('player');
 		console.log('retrievedObject: ', JSON.parse(retrievedObject));
-
-	
+		return retrievedObject;
 	};
 	Room.enterDoor=function(){
 		game.debug.text("touched door", 32, 96);
