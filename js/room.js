@@ -187,10 +187,12 @@ function Room(game){
 		console.log("tap/"+pointer.x+"/"+pointer.y);
 	};
 	Room.saveData=function(){
+		game.debug.text("start of save", 32, 130);
 		var testObject = Room.player.chData;
 		console.log('testObject:'+testObject);
 		// Put the object into storage
 		localStorage.setItem('player', JSON.stringify(testObject));
+		game.debug.text("end of save", 32, 130);
 	};
 	Room.loadData=function(){
 		// Retrieve the object from storage
