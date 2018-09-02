@@ -203,7 +203,7 @@ function Room(game){
 	Room.enterDoor=function(){
 		game.debug.text("touched door", 32, 96);
 		//save character data first
-		saveData();
+		Room.saveData();
 		//door should lead to next room
 		game.state.start('inside');
 
