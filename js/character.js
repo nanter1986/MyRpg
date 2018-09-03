@@ -11,7 +11,7 @@ function Player(chName,sprite,chData){
     this.sprite.animations.add('down',[3,5],10,true);
     this.sprite.animations.add('up',[39,41],10,true);
     this.sprite.animations.play('walk', 50, true);
-    this.level=chData['level'];
+    this.level=Number(chData['level']);
 }
 
 function npcCharacter(chName,sprite,chData){
