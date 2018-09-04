@@ -64,7 +64,7 @@ function Room(game){
 		var tpCh=typeof chData.level;
 		console.log('loaded data:'+chData);
 		console.log('type of data:'+tpCh);
-		console.log('type after number():'+Number(chData.level);
+		console.log('type after number():'+Number(chData.level));
 		game.debug.text("chData:"+chData+"type:"+tpCh, 32, 192);
 		Room.player=new Player('nanter',this.sprite,chData);
 		/*this.sprite.animations.add('left',[15,17],10,true);
