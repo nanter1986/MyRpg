@@ -56,13 +56,15 @@ function Room(game){
 			chData={
 				'level':1
 			};
-            console.log('room load data is null');
+			console.log('room load data is null');
 		}else{
 			chData=Room.loadData();
-            console.log('room load data not null');
+			console.log('room load data not null');
 		}
 		var tpCh=typeof chData.level;
+		console.log('loaded data:'+chData);
 		console.log('type of data:'+tpCh);
+		console.log('type after number():'+Number(chData.level);
 		game.debug.text("chData:"+chData+"type:"+tpCh, 32, 192);
 		Room.player=new Player('nanter',this.sprite,chData);
 		/*this.sprite.animations.add('left',[15,17],10,true);
@@ -193,19 +195,19 @@ function Room(game){
 	Room.saveData=function(){
 		game.debug.text("start of save", 32, 130);
 		var testObject = Room.player.chData;
-        console.log('testObject:'+testObject);
+		console.log('testObject:'+testObject);
 		var stringifiedTestObject=JSON.stringify(testObject);
-        console.log('stringifiedTestObject:'+stringifiedTestObject);
+		console.log('stringifiedTestObject:'+stringifiedTestObject);
 		// Put the object into storage
-		localStorage.setItem('player',stringifiedTestObject );
+		localStorage.setItem('player',stringifiedTestObject);
 		game.debug.text("end of save", 32, 130);
 	};
 	Room.loadData=function(){
 		// Retrieve the object from storage
 		var retrievedObject = localStorage.getItem('player');
 		console.log('retrievedObject: ', retrievedObject);
-        var inflatedRetrievedObject = JSON.parse(retrievedObject);
-        console.log('inflatedRetrievedObject: ', inflatedRetrievedObject);
+		var inflatedRetrievedObject = JSON.parse(retrievedObject);
+		console.log('inflatedRetrievedObject: ', inflatedRetrievedObject);
 		return retrievedObject;
 	};
 	Room.enterDoor=function(){
