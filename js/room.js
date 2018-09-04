@@ -209,7 +209,7 @@ function Room(game){
 		console.log('retrievedObject: ', retrievedObject);
 		var inflatedRetrievedObject = JSON.parse(retrievedObject);
 		console.log('inflatedRetrievedObject: ', inflatedRetrievedObject);
-		return retrievedObject;
+		return inflatedRetrievedObject;
 	};
 	Room.enterDoor=function(){
 		game.debug.text("touched door", 32, 96);
