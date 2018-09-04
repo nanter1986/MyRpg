@@ -56,12 +56,12 @@ function Room(game){
 			chData={
 				'level':1
 			};
-            console.log('room load data not null');
+            console.log('room load data is null');
 		}else{
 			chData=Room.loadData();
-            console.log('room load data is null');
+            console.log('room load data not null');
 		}
-		var tpCh=typeof chData;
+		var tpCh=typeof chData.level;
 		console.log('type of data:'+tpCh);
 		game.debug.text("chData:"+chData+"type:"+tpCh, 32, 192);
 		Room.player=new Player('nanter',this.sprite,chData);
@@ -200,8 +200,8 @@ function Room(game){
 	};
 	Room.loadData=function(){
 		// Retrieve the object from storage
-		var retrievedObject = localStorage.getItem('player');
-		console.log('retrievedObject: ', JSON.parse(retrievedObject));
+		var retrievedObject = JSON.parse(localStorage.getItem('player'));
+		console.log('retrievedObject: ', retrievedObject.level);
 		return retrievedObject;
 	};
 	Room.enterDoor=function(){
