@@ -194,7 +194,8 @@ function Room(game){
 	};
 	Room.saveData=function(){
 		game.debug.text("start of save", 32, 130);
-		var testObject = Room.player.chData;
+        console.log('player level before saving:'+ Room.player.chData);
+        var testObject = Room.player.chData;
 		console.log('testObject:'+testObject);
 		var stringifiedTestObject=JSON.stringify(testObject);
 		console.log('stringifiedTestObject:'+stringifiedTestObject);
