@@ -193,15 +193,19 @@ function Room(game){
 	Room.saveData=function(){
 		game.debug.text("start of save", 32, 130);
 		var testObject = Room.player.chData;
-		console.log('testObject:'+testObject);
+        console.log('testObject:'+testObject);
+		var stringifiedTestObject=JSON.stringify(testObject);
+        console.log('stringifiedTestObject:'+stringifiedTestObject);
 		// Put the object into storage
-		localStorage.setItem('player', JSON.stringify(testObject));
+		localStorage.setItem('player',stringifiedTestObject );
 		game.debug.text("end of save", 32, 130);
 	};
 	Room.loadData=function(){
 		// Retrieve the object from storage
-		var retrievedObject = JSON.parse(localStorage.getItem('player'));
-		console.log('retrievedObject: ', retrievedObject.level);
+		var retrievedObject = localStorage.getItem('player');
+		console.log('retrievedObject: ', retrievedObject);
+        var inflatedRetrievedObject = JSON.parse(retrievedObject);
+        console.log('inflatedRetrievedObject: ', inflatedRetrievedObject);
 		return retrievedObject;
 	};
 	Room.enterDoor=function(){
