@@ -60,7 +60,8 @@ function Room(game){
 		}else{
 			chData=Room.loadData();	
 		}
-		game.debug.text("chDatab"+chData+"type:"+typeof chData, 32, 192);
+		var tpCh=typeof chData;
+		game.debug.text("chData:"+chData+"type:"+tpCh, 32, 192);
 		Room.player=new Player('nanter',this.sprite,chData);
 		/*this.sprite.animations.add('left',[15,17],10,true);
 		this.sprite.animations.add('right',[27,29],10,true);
