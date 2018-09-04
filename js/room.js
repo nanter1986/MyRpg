@@ -56,11 +56,13 @@ function Room(game){
 			chData={
 				'level':1
 			};
-
+            console.log('room load data not null');
 		}else{
-			chData=Room.loadData();	
+			chData=Room.loadData();
+            console.log('room load data is null');
 		}
 		var tpCh=typeof chData;
+		console.log('type of data:'+tpCh);
 		game.debug.text("chData:"+chData+"type:"+tpCh, 32, 192);
 		Room.player=new Player('nanter',this.sprite,chData);
 		/*this.sprite.animations.add('left',[15,17],10,true);
