@@ -158,27 +158,27 @@ function Room(game){
 		if (this.cursors.left.isDown || Room.leftActive===true)
 		{
 			Room.player.sprite.body.velocity.x = -100;
-			Room.player.level+=1;
+			Room.player.chData.level+=1;
 			Room.player.sprite.play('left');
 		}
 		else if (this.cursors.right.isDown || Room.rightActive===true)
 		{
 			Room.player.sprite.body.velocity.x = 100;
-			Room.player.level+=1;
+			Room.player.chData.level+=1;
 			Room.player.sprite.play('right');
 		}
 		else if (this.cursors.up.isDown || Room.upActive===true)
 		{
 			console.log("inside up else if");
 			Room.player.sprite.body.velocity.y = -100;
-			Room.player.level+=1;
+			Room.player.chData.level+=1;
 			Room.player.sprite.play('up');
 		}
 		else if (this.cursors.down.isDown || Room.downActive===true)
 		{
 			//fix this
 			Room.player.sprite.body.velocity.y = 100;
-			Room.player.level+=1;
+			Room.player.chData.level+=1;
 			Room.player.sprite.play('down');
 		}
 		else
