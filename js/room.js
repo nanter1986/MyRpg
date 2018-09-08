@@ -1,4 +1,5 @@
 function Room(game){
+	Preroom.call(this,game);
 	Room.map=null;
 	this.layer=null;
 	this.cursors=null;	
