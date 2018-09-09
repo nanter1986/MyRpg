@@ -20,7 +20,7 @@ function Preroom(game){
 	this.secondButton=null;
 	//characters
 	Room.player=null;
-
+	/*
 	//https://phaser.io/examples/v2/input/virtual-gamecontroller
 	//virtual controller
 	this.preload=function(){
@@ -67,11 +67,11 @@ function Preroom(game){
 		console.log('type after number():'+Number(chData['level']));
 		game.debug.text("chData:"+chData+"type:"+tpCh, 32, 192);
 		Room.player=new Player('nanter',this.sprite,chData);
-		/*this.sprite.animations.add('left',[15,17],10,true);
-		this.sprite.animations.add('right',[27,29],10,true);
-		this.sprite.animations.add('down',[3,5],10,true);
-		this.sprite.animations.add('up',[39,41],10,true);
-		this.sprite.animations.play('walk', 50, true);*/
+		//this.sprite.animations.add('left',[15,17],10,true);
+		//this.sprite.animations.add('right',[27,29],10,true);
+		//this.sprite.animations.add('down',[3,5],10,true);
+		//this.sprite.animations.add('up',[39,41],10,true);
+		//this.sprite.animations.play('walk', 50, true);
 		game.physics.enable(Room.player.sprite, Phaser.Physics.ARCADE);
 		Room.player.sprite.body.setSize(10, 14, 2, 1);
 		game.camera.follow(Room.player.sprite);
@@ -219,4 +219,5 @@ function Preroom(game){
 		game.state.start('inside');
 
 	};
+	*/	
 }
