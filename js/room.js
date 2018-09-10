@@ -1,5 +1,6 @@
 function Room(game){
 	Preroom.call(this,game);
+	/*
 	Room.map=null;
 	this.layer=null;
 	this.cursors=null;	
@@ -21,7 +22,7 @@ function Room(game){
 	this.secondButton=null;
 	//characters
 	Room.player=null;
-
+	*/
 	//https://phaser.io/examples/v2/input/virtual-gamecontroller
 	//virtual controller
 	this.preload=function(){
