@@ -1,16 +1,16 @@
 function Preroom(game){
-	Room.map=null;
+	Preroom.map=null;
 	this.layer=null;
 	this.cursors=null;	
 	this.sprite=null;
-	Room.music=null;
+	Preroom.music=null;
 	//button booleans
-	Room.leftActive=false;
-	Room.rightActive=false;
-	Room.upActive=false;
-	Room.downActive=false;
-	Room.firstActionActive=false;
-	Room.secondActionActive=false;
+	Preroom.leftActive=false;
+	Preroom.rightActive=false;
+	Preroom.upActive=false;
+	Preroom.downActive=false;
+	Preroom.firstActionActive=false;
+	Preroom.secondActionActive=false;
 	//button variables
 	this.leftButton=null;
 	this.rightButton=null;
@@ -19,7 +19,7 @@ function Preroom(game){
 	this.firstButton=null;
 	this.secondButton=null;
 	//characters
-	Room.player=null;
+	Preroom.player=null;
 	/*
 	//https://phaser.io/examples/v2/input/virtual-gamecontroller
 	//virtual controller
@@ -42,23 +42,23 @@ function Preroom(game){
 	this.create=function(){
 		console.log('create start');
 		if (!game.device.desktop){ game.input.onDown.add(this.goFull, this); } //go fullscreen on mobile devices
-		Room.map = game.add.tilemap('map', 16, 16);
-		Room.map.addTilesetImage('tiles');
-		Room.map.setCollisionBetween(0,7);
-		Room.map.setTileIndexCallback(48, Room.enterDoor, this);
+		Preroom.map = game.add.tilemap('map', 16, 16);
+		Preroom.map.addTilesetImage('tiles');
+		Preroom.map.setCollisionBetween(0,7);
+		Preroom.map.setTileIndexCallback(48, Preroom.enterDoor, this);
 		// https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/tile%20callbacks.js
-		this.layer = Room.map.createLayer(0);
+		this.layer = Preroom.map.createLayer(0);
 		this.layer.resizeWorld();
 		//this.layer.debug = true;
 		this.sprite = game.add.sprite(40, 100, 'char',4);
 		var chData=null;
-		if(Room.loadData()==null){
+		if(Preroom.loadData()==null){
 			chData={
 				'level':1
 			};
 			console.log('room load data is null');
 		}else{
-			chData=Room.loadData();
+			chData=Preroom.loadData();
 			console.log('room load data not null');
 		}
 		var tpCh=typeof chData['level'];
@@ -66,17 +66,17 @@ function Preroom(game){
 		console.log('type of data:'+tpCh);
 		console.log('type after number():'+Number(chData['level']));
 		game.debug.text("chData:"+chData+"type:"+tpCh, 32, 192);
-		Room.player=new Player('nanter',this.sprite,chData);
+		Preroom.player=new Player('nanter',this.sprite,chData);
 		//this.sprite.animations.add('left',[15,17],10,true);
 		//this.sprite.animations.add('right',[27,29],10,true);
 		//this.sprite.animations.add('down',[3,5],10,true);
 		//this.sprite.animations.add('up',[39,41],10,true);
 		//this.sprite.animations.play('walk', 50, true);
-		game.physics.enable(Room.player.sprite, Phaser.Physics.ARCADE);
-		Room.player.sprite.body.setSize(10, 14, 2, 1);
-		game.camera.follow(Room.player.sprite);
-		//Room.music = game.add.audio('boden');
-		//Room.music.play();
+		game.physics.enable(Preroom.player.sprite, Phaser.Physics.ARCADE);
+		Preroom.player.sprite.body.setSize(10, 14, 2, 1);
+		game.camera.follow(Preroom.player.sprite);
+		//Preroom.music = game.add.audio('boden');
+		//Preroom.music.play();
 		this.upButton= game.add.button(70, 420, 'up', null, this);
 		this.downButton= game.add.button(70, 500, 'down', null, this);
 		this.leftButton= game.add.button(10, 400, 'left', null, this);
@@ -86,60 +86,60 @@ function Preroom(game){
 		//buttonjump.events.onInputOver.add(function(){jump=true;});
 		//buttonjump.events.onInputOut.add(function(){jump=false;});
 		this.upButton.events.onInputDown.add(function(){
-			Room.upActive=true;
-			console.log("up button active:"+Room.upActive);
-			game.debug.text("upActive"+Room.upActive, 32, 32);
+			Preroom.upActive=true;
+			console.log("up button active:"+Preroom.upActive);
+			game.debug.text("upActive"+Preroom.upActive, 32, 32);
 		});
 		this.upButton.events.onInputUp.add(function(){
-			Room.upActive=false;
-			console.log("up button stopped:"+Room.upActive);
-			game.debug.text("upActive"+Room.upActive, 32, 32);
+			Preroom.upActive=false;
+			console.log("up button stopped:"+Preroom.upActive);
+			game.debug.text("upActive"+Preroom.upActive, 32, 32);
 		});
 		this.downButton.events.onInputDown.add(function(){
-			Room.downActive=true;
-			console.log("down button active"+Room.downActive);
-			game.debug.text("downActive"+Room.downActive, 32, 32);
+			Preroom.downActive=true;
+			console.log("down button active"+Preroom.downActive);
+			game.debug.text("downActive"+Preroom.downActive, 32, 32);
 		});
 		this.downButton.events.onInputUp.add(function(){
-			Room.downActive=false;
-			console.log("down button stopped"+Room.downActive);
-			game.debug.text("downActive"+Room.downActive, 32, 32);
+			Preroom.downActive=false;
+			console.log("down button stopped"+Preroom.downActive);
+			game.debug.text("downActive"+Preroom.downActive, 32, 32);
 		});
 		this.rightButton.events.onInputDown.add(function(){
-			Room.rightActive=true;
-			console.log("right button active:"+Room.rightActive);
-			game.debug.text("rightActive"+Room.rightActive, 32, 32);
+			Preroom.rightActive=true;
+			console.log("right button active:"+Preroom.rightActive);
+			game.debug.text("rightActive"+Preroom.rightActive, 32, 32);
 		});
 		this.rightButton.events.onInputUp.add(function(){
-			Room.rightActive=false;
-			console.log("right button stopped:"+Room.rightActive);
-			game.debug.text("rightActive"+Room.rightActive, 32, 32);
+			Preroom.rightActive=false;
+			console.log("right button stopped:"+Preroom.rightActive);
+			game.debug.text("rightActive"+Preroom.rightActive, 32, 32);
 		});
 		this.leftButton.events.onInputDown.add(function(){
-			Room.leftActive=true;
-			console.log("left button active"+Room.leftActive);
-			game.debug.text("leftActive"+Room.leftActive, 32, 32);
+			Preroom.leftActive=true;
+			console.log("left button active"+Preroom.leftActive);
+			game.debug.text("leftActive"+Preroom.leftActive, 32, 32);
 		});
 		this.leftButton.events.onInputUp.add(function(){
-			Room.leftActive=false;
-			console.log("left button stopped"+Room.leftActive);
-			game.debug.text("leftActive"+Room.leftActive, 32, 32);
+			Preroom.leftActive=false;
+			console.log("left button stopped"+Preroom.leftActive);
+			game.debug.text("leftActive"+Preroom.leftActive, 32, 32);
 		});
 		this.firstButton.events.onInputDown.add(function(){
-			Room.firstActionActive=true;
-			game.debug.text("firstActive"+Room.firstActionActive, 32, 32);
+			Preroom.firstActionActive=true;
+			game.debug.text("firstActive"+Preroom.firstActionActive, 32, 32);
 		});
 		this.firstButton.events.onInputUp.add(function(){
-			Room.firstActionActive=false;
-			game.debug.text("firstActive"+Room.firstActionActive, 32, 32);
+			Preroom.firstActionActive=false;
+			game.debug.text("firstActive"+Preroom.firstActionActive, 32, 32);
 		});
 		this.secondButton.events.onInputDown.add(function(){
-			Room.secondActionActive=true;
-			game.debug.text("secondActive"+Room.secondActionActive, 32, 32);
+			Preroom.secondActionActive=true;
+			game.debug.text("secondActive"+Preroom.secondActionActive, 32, 32);
 		});
 		this.secondButton.events.onInputUp.add(function(){
-			Room.secondActionActive=false;
-			game.debug.text("secondActive"+Room.secondActionActive, 32, 32);
+			Preroom.secondActionActive=false;
+			game.debug.text("secondActive"+Preroom.secondActionActive, 32, 32);
 		});
 		console.log(this.sprite);
 		console.log(this.sprite.animations);
@@ -150,40 +150,40 @@ function Preroom(game){
 	};
 	this.update=function(){
 		console.log('update/'+this.upActive+this.downActive);
-		game.debug.text("downActive:"+Room.downActive+"/upActive:"+Room.upActive, 32, 64);
-		//game.debug.soundInfo(Room.music, 20, 96);
-		game.debug.text('level:'+Room.player.chData.level,32,128);
+		game.debug.text("downActive:"+Preroom.downActive+"/upActive:"+Preroom.upActive, 32, 64);
+		//game.debug.soundInfo(Preroom.music, 20, 96);
+		game.debug.text('level:'+Preroom.player.chData.level,32,128);
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
-		if (this.cursors.left.isDown || Room.leftActive===true)
+		if (this.cursors.left.isDown || Preroom.leftActive===true)
 		{
-			Room.player.sprite.body.velocity.x = -100;
-			Room.player.chData.level+=1;
-			Room.player.sprite.play('left');
+			Preroom.player.sprite.body.velocity.x = -100;
+			Preroom.player.chData.level+=1;
+			Preroom.player.sprite.play('left');
 		}
-		else if (this.cursors.right.isDown || Room.rightActive===true)
+		else if (this.cursors.right.isDown || Preroom.rightActive===true)
 		{
-			Room.player.sprite.body.velocity.x = 100;
-			Room.player.chData.level+=1;
-			Room.player.sprite.play('right');
+			Preroom.player.sprite.body.velocity.x = 100;
+			Preroom.player.chData.level+=1;
+			Preroom.player.sprite.play('right');
 		}
-		else if (this.cursors.up.isDown || Room.upActive===true)
+		else if (this.cursors.up.isDown || Preroom.upActive===true)
 		{
 			console.log("inside up else if");
-			Room.player.sprite.body.velocity.y = -100;
-			Room.player.chData.level+=1;
-			Room.player.sprite.play('up');
+			Preroom.player.sprite.body.velocity.y = -100;
+			Preroom.player.chData.level+=1;
+			Preroom.player.sprite.play('up');
 		}
-		else if (this.cursors.down.isDown || Room.downActive===true)
+		else if (this.cursors.down.isDown || Preroom.downActive===true)
 		{
 			//fix this
-			Room.player.sprite.body.velocity.y = 100;
-			Room.player.chData.level+=1;
-			Room.player.sprite.play('down');
+			Preroom.player.sprite.body.velocity.y = 100;
+			Preroom.player.chData.level+=1;
+			Preroom.player.sprite.play('down');
 		}
 		else
 		{
-			Room.player.sprite.animations.stop();
+			Preroom.player.sprite.animations.stop();
 		}
 	};
 	this.goFull=function(){
@@ -192,10 +192,10 @@ function Preroom(game){
 	this.onTapping=function(pointer,doubleTap){
 		console.log("tap/"+pointer.x+"/"+pointer.y);
 	};
-	Room.saveData=function(){
+	Preroom.saveData=function(){
 		game.debug.text("start of save", 32, 130);
-        console.log('player level before saving:'+ Room.player.chData);
-        var testObject = Room.player.chData;
+        console.log('player level before saving:'+ Preroom.player.chData);
+        var testObject = Preroom.player.chData;
 		console.log('testObject:'+testObject);
 		var stringifiedTestObject=JSON.stringify(testObject);
 		console.log('stringifiedTestObject:'+stringifiedTestObject);
@@ -203,7 +203,7 @@ function Preroom(game){
 		localStorage.setItem('player',stringifiedTestObject);
 		game.debug.text("end of save", 32, 130);
 	};
-	Room.loadData=function(){
+	Preroom.loadData=function(){
 		// Retrieve the object from storage
 		var retrievedObject = localStorage.getItem('player');
 		console.log('retrievedObject: ', retrievedObject);
@@ -211,10 +211,10 @@ function Preroom(game){
 		console.log('inflatedRetrievedObject: ', inflatedRetrievedObject);
 		return inflatedRetrievedObject;
 	};
-	Room.enterDoor=function(){
+	Preroom.enterDoor=function(){
 		game.debug.text("touched door", 32, 96);
 		//save character data first
-		Room.saveData();
+		Preroom.saveData();
 		//door should lead to next room
 		game.state.start('inside');
 
