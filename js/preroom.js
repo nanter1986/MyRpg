@@ -20,7 +20,6 @@ function Preroom(game){
 	this.secondButton=null;
 	//characters
 	Preroom.player=null;
-	/*
 	//https://phaser.io/examples/v2/input/virtual-gamecontroller
 	//virtual controller
 	this.preload=function(){
@@ -39,6 +38,7 @@ function Preroom(game){
 		//game.load.audio('boden', 'assets/dustymemories.mp3');
 		console.log('preload end');
 	};
+	/*
 	this.create=function(){
 		console.log('create start');
 		if (!game.device.desktop){ game.input.onDown.add(this.goFull, this); } //go fullscreen on mobile devices
