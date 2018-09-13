@@ -1,6 +1,5 @@
 function Room(game){
-	Preroom.call(this,game);
-	/*
+	//Preroom.call(this,game);
 	Room.map=null;
 	this.layer=null;
 	this.cursors=null;	
@@ -22,7 +21,6 @@ function Room(game){
 	this.secondButton=null;
 	//characters
 	Room.player=null;
-	*/
 	//https://phaser.io/examples/v2/input/virtual-gamecontroller
 	//virtual controller
 	this.preload=function(){
@@ -77,8 +75,8 @@ function Room(game){
 		game.physics.enable(Room.player.sprite, Phaser.Physics.ARCADE);
 		Room.player.sprite.body.setSize(10, 14, 2, 1);
 		game.camera.follow(Room.player.sprite);
-		//Room.music = game.add.audio('boden');
-		//Room.music.play();
+		//Room1.music = game.add.audio('boden');
+		//Room1.music.play();
 		this.upButton= game.add.button(70, 420, 'up', null, this);
 		this.downButton= game.add.button(70, 500, 'down', null, this);
 		this.leftButton= game.add.button(10, 400, 'left', null, this);
@@ -153,7 +151,7 @@ function Room(game){
 	this.update=function(){
 		console.log('update/'+this.upActive+this.downActive);
 		game.debug.text("downActive:"+Room.downActive+"/upActive:"+Room.upActive, 32, 64);
-		//game.debug.soundInfo(Room.music, 20, 96);
+		//game.debug.soundInfo(Room1.music, 20, 96);
 		game.debug.text('level:'+Room.player.chData.level,32,128);
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
@@ -218,7 +216,7 @@ function Room(game){
 		//save character data first
 		Room.saveData();
 		//door should lead to next room
-		game.state.start('inside');
+		game.state.start('outside');
 
 	};
 }
