@@ -136,6 +136,7 @@ function Room(game){
 		this.secondButton.events.onInputDown.add(function(){
 			Room.secondActionActive=true;
 			game.debug.text("secondActive"+Room.secondActionActive, 32, 32);
+			//inventory pop up
 		});
 		this.secondButton.events.onInputUp.add(function(){
 			Room.secondActionActive=false;
