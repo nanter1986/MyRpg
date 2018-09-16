@@ -138,6 +138,7 @@ function Room(game){
 			game.debug.text("secondActive"+Room.secondActionActive, 32, 32);
 			//inventory pop up
 			//new scene or just draw above
+			//open window with options and items
 		});
 		this.secondButton.events.onInputUp.add(function(){
 			Room.secondActionActive=false;
