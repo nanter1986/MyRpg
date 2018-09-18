@@ -223,4 +223,7 @@ function Room(game){
 		game.state.start('outside');
 
 	};
+	Room.openMenuWindow=function(){
+	
+	};
 }
