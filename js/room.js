@@ -21,6 +21,7 @@ function Room(game){
 	this.secondButton=null;
 	//characters
 	Room.player=null;
+	Room.openedMenu=true;
 	//https://phaser.io/examples/v2/input/virtual-gamecontroller
 	//virtual controller
 	this.preload=function(){
@@ -224,6 +225,7 @@ function Room(game){
 
 	};
 	Room.openMenuWindow=function(){
+		Room.openedMenu=true;
 	
 	};
 }
