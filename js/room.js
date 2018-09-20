@@ -225,7 +225,12 @@ function Room(game){
 
 	};
 	Room.openMenuWindow=function(){
+		if(Room.openedMenu){
+		
+		}else{
+		
+		}
 		Room.openedMenu=true;
-	
+		game.debug.text("menu:"+chData+"type:"+tpCh, 32, 192);
 	};
 }
