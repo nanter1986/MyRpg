@@ -21,7 +21,7 @@ function Room(game){
 	this.secondButton=null;
 	//characters
 	Room.player=null;
-	Room.openedMenu=true;
+	Room.openedMenu=false;
 	//https://phaser.io/examples/v2/input/virtual-gamecontroller
 	//virtual controller
 	this.preload=function(){
@@ -158,6 +158,9 @@ function Room(game){
 		game.debug.text("downActive:"+Room.downActive+"/upActive:"+Room.upActive, 32, 64);
 		//game.debug.soundInfo(Room1.music, 20, 96);
 		game.debug.text('level:'+Room.player.chData.level,32,128);
+		if(Room.openedMenu){
+			game.debug.text('menu is open',32,200);
+		}
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
 		if (this.cursors.left.isDown || Room.leftActive===true)
