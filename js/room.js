@@ -234,5 +234,6 @@ function Room(game){
 			Room.openedMenu=true;
 		}
 		game.debug.text("menu:"+chData+"type:"+tpCh, 32, 192);
+		//https://phaser.io/examples/v2/input/button-open-popup
 	};
 }
