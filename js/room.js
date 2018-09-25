@@ -52,6 +52,7 @@ function Room(game){
 		this.layer = Room.map.createLayer(0);
 		this.layer.resizeWorld();
 		//this.layer.debug = true;
+		Room.popupMenup = game.add.sprite(game.world.centerX, game.world.centerY, 'background');
 		this.sprite = game.add.sprite(40, 100, 'char',4);
 		var chData=null;
 		if(Room.loadData()==null){
