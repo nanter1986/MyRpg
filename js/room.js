@@ -36,6 +36,7 @@ function Room(game){
 		game.load.image('right', 'assets/flatDark05.png');
 		game.load.image('a', 'assets/flatDark35.png');
 		game.load.image('b', 'assets/flatDark36.png');
+		game.load.image('background','assets/back.png');
 		game.load.spritesheet('char', 'assets/characters.png', 16, 16, 96);
 		// https://github.com/photonstorm/phaser-examples/blob/master/examples/audio/play%20music.js
 		//game.load.audio('boden', 'assets/dustymemories.mp3');
