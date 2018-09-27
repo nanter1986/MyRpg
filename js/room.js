@@ -163,6 +163,7 @@ function Room(game){
 		game.debug.text('level:'+Room.player.chData.level,32,128);
 		if(Room.openedMenu){
 			game.debug.text('menu is open',32,200);
+			//here display the menu
 		}
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
