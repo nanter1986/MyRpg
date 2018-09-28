@@ -164,6 +164,7 @@ function Room(game){
 		if(Room.openedMenu){
 			game.debug.text('menu is open',32,200);
 			//here display the menu
+			//idea,maybe no menu,just switches and exploration
 		}
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
