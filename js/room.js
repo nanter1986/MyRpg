@@ -167,6 +167,7 @@ function Room(game){
 			//idea,maybe no menu,just switches and exploration
 			//touch switches to activate or deactivate
 			//dialogs with characters on touch
+			//method that takes sprite and makes it touchable
 		}
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
