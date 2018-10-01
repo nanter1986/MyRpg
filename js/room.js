@@ -246,4 +246,7 @@ function Room(game){
 		//https://phaser.io/examples/v2/input/button-open-popup
 	};
 	//touchifier method
+	Room.touchifySprite=function(spriteNumber,methodToDo){
+		Room.map.setTileIndexCallback(spriteNumber, methodToDo, this);
+	}
 }
