@@ -248,5 +248,8 @@ function Room(game){
 	//touchifier method
 	Room.touchifySprite=function(spriteNumber,methodToDo){
 		Room.map.setTileIndexCallback(spriteNumber, methodToDo, this);
-	}
+	};
+	Room.showDialog=function(){
+	
+	};
 }
