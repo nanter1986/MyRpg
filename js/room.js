@@ -252,7 +252,7 @@ function Room(game){
 	};
 	Room.showDialog=function(){
 		//show pop up dialog	
-		popup = game.add.sprite(game.world.centerX, game.world.centerY, 'background');
+		Room.dialog = game.add.sprite(game.world.centerX, game.world.centerY, 'background');
 	};
 	Room.killDialog=function(){
 	
