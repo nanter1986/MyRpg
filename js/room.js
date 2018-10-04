@@ -255,6 +255,6 @@ function Room(game){
 		Room.dialog = game.add.sprite(game.world.centerX, game.world.centerY, 'background');
 	};
 	Room.killDialog=function(){
-	
+		Room.dialog.destroy();	
 	};
 }
