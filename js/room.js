@@ -172,6 +172,7 @@ function Room(game){
 			//method that takes sprite and makes it touchable
 		}
 		game.physics.arcade.collide(this.sprite, this.layer);
+		//here collide for dialog
 		this.sprite.body.velocity.set(0);
 		if (this.cursors.left.isDown || Room.leftActive===true)
 		{
