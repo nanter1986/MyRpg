@@ -50,6 +50,9 @@ function Room(game){
 		Room.map.addTilesetImage('tiles');
 		Room.map.setCollisionBetween(0,7);
 		Room.map.setTileIndexCallback(48, Room.enterDoor, this);
+		//here collide for dialog
+		//find index of dialog sprite
+		Room.map.setTileIndexCallback(48, Room.enterDoor, this);
 		// https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/tile%20callbacks.js
 		this.layer = Room.map.createLayer(0);
 		this.layer.resizeWorld();
@@ -172,7 +175,6 @@ function Room(game){
 			//method that takes sprite and makes it touchable
 		}
 		game.physics.arcade.collide(this.sprite, this.layer);
-		//here collide for dialog
 		this.sprite.body.velocity.set(0);
 		if (this.cursors.left.isDown || Room.leftActive===true)
 		{
