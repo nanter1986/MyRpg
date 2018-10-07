@@ -260,4 +260,8 @@ function Room(game){
 	Room.killDialog=function(){
 		Room.dialog.destroy();	
 	};
+	Room.enterDoor=function(){
+		//do open	
+	}
+
 }
