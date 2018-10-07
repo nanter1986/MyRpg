@@ -52,7 +52,7 @@ function Room(game){
 		Room.map.setTileIndexCallback(48, Room.enterDoor, this);
 		//here collide for dialog
 		//find index of dialog sprite
-		Room.map.setTileIndexCallback(48, Room.enterDoor, this);
+		Room.map.setTileIndexCallback(27, Room.potCallback, this);
 		// https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/tile%20callbacks.js
 		this.layer = Room.map.createLayer(0);
 		this.layer.resizeWorld();
