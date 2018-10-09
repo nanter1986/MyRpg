@@ -24,6 +24,7 @@ function Room(game){
 	Room.openedMenu=false;
 	Room.popupMenu=null;
 	Room.dialog=null;
+	Room.dialogIsOnScreenBoolean=null;
 	//https://phaser.io/examples/v2/input/virtual-gamecontroller
 	//virtual controller
 	this.preload=function(){
