@@ -257,9 +257,11 @@ function Room(game){
 	Room.showDialog=function(){
 		//show pop up dialog	
 		Room.dialog = game.add.sprite(game.world.centerX, game.world.centerY, 'background');
+		Room.dialogIsOnScreenBoolean=true;
 	};
 	Room.killDialog=function(){
 		Room.dialog.destroy();	
+		Room.dialogIsOnScreenBoolean=false;
 	};
 	Room.potCallback=function(){
 		//do open	
