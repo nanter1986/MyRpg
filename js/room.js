@@ -175,6 +175,9 @@ function Room(game){
 			//knowledge riddles about areas
 			//method that takes sprite and makes it touchable
 		}
+		if(Room.dialogIsOnScreenBoolean){
+		
+		}
 		game.physics.arcade.collide(this.sprite, this.layer);
 		this.sprite.body.velocity.set(0);
 		if (this.cursors.left.isDown || Room.leftActive===true)
