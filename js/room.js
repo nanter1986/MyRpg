@@ -176,6 +176,7 @@ function Room(game){
 			//method that takes sprite and makes it touchable
 		}
 		if(Room.dialogIsOnScreenBoolean){
+			//everything stops and shows dialog box)
 		
 		}
 		game.physics.arcade.collide(this.sprite, this.layer);
