@@ -177,39 +177,40 @@ function Room(game){
 		}
 		if(Room.dialogIsOnScreenBoolean){
 			//everything stops and shows dialog box)
-		
-		}
-		game.physics.arcade.collide(this.sprite, this.layer);
-		this.sprite.body.velocity.set(0);
-		if (this.cursors.left.isDown || Room.leftActive===true)
-		{
-			Room.player.sprite.body.velocity.x = -100;
-			Room.player.chData.level+=1;
-			Room.player.sprite.play('left');
-		}
-		else if (this.cursors.right.isDown || Room.rightActive===true)
-		{
-			Room.player.sprite.body.velocity.x = 100;
-			Room.player.chData.level+=1;
-			Room.player.sprite.play('right');
-		}
-		else if (this.cursors.up.isDown || Room.upActive===true)
-		{
-			console.log("inside up else if");
-			Room.player.sprite.body.velocity.y = -100;
-			Room.player.chData.level+=1;
-			Room.player.sprite.play('up');
-		}
-		else if (this.cursors.down.isDown || Room.downActive===true)
-		{
-			//fix this
-			Room.player.sprite.body.velocity.y = 100;
-			Room.player.chData.level+=1;
-			Room.player.sprite.play('down');
-		}
-		else
-		{
-			Room.player.sprite.animations.stop();
+
+		}else{
+			game.physics.arcade.collide(this.sprite, this.layer);
+			this.sprite.body.velocity.set(0);
+			if (this.cursors.left.isDown || Room.leftActive===true)
+			{
+				Room.player.sprite.body.velocity.x = -100;
+				Room.player.chData.level+=1;
+				Room.player.sprite.play('left');
+			}
+			else if (this.cursors.right.isDown || Room.rightActive===true)
+			{
+				Room.player.sprite.body.velocity.x = 100;
+				Room.player.chData.level+=1;
+				Room.player.sprite.play('right');
+			}
+			else if (this.cursors.up.isDown || Room.upActive===true)
+			{
+				console.log("inside up else if");
+				Room.player.sprite.body.velocity.y = -100;
+				Room.player.chData.level+=1;
+				Room.player.sprite.play('up');
+			}
+			else if (this.cursors.down.isDown || Room.downActive===true)
+			{
+				//fix this
+				Room.player.sprite.body.velocity.y = 100;
+				Room.player.chData.level+=1;
+				Room.player.sprite.play('down');
+			}
+			else
+			{
+				Room.player.sprite.animations.stop();
+			}
 		}
 	};
 	this.goFull=function(){
@@ -220,8 +221,8 @@ function Room(game){
 	};
 	Room.saveData=function(){
 		game.debug.text("start of save", 32, 130);
-        console.log('player level before saving:'+ Room.player.chData);
-        var testObject = Room.player.chData;
+		console.log('player level before saving:'+ Room.player.chData);
+		var testObject = Room.player.chData;
 		console.log('testObject:'+testObject);
 		var stringifiedTestObject=JSON.stringify(testObject);
 		console.log('stringifiedTestObject:'+stringifiedTestObject);
