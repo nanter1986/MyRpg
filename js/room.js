@@ -177,6 +177,7 @@ function Room(game){
 		}
 		if(Room.dialogIsOnScreenBoolean){
 			//everything stops and shows dialog box)
+			Room.showDialog();
 
 		}else{
 			game.physics.arcade.collide(this.sprite, this.layer);
