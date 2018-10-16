@@ -178,6 +178,7 @@ function Room(game){
 		if(Room.dialogIsOnScreenBoolean){
 			//everything stops and shows dialog box)
 			//fix this
+			//freeze
 			Room.showDialog();
 
 		}else{
