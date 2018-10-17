@@ -175,7 +175,7 @@ function Room(game){
 			//knowledge riddles about areas
 			//method that takes sprite and makes it touchable
 		}
-		if(Room.dialogIsOnScreenBoolean){
+		if(!Room.dialogIsOnScreenBoolean){
 			//everything stops and shows dialog box)
 			//fix this
 			//freeze
