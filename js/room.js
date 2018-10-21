@@ -181,6 +181,7 @@ function Room(game){
 			//freeze
 			Room.showDialog();
 			//fit 2 booleans
+			//show simething else while true
 
 		}else{
 			game.physics.arcade.collide(this.sprite, this.layer);
