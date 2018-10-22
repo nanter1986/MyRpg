@@ -183,6 +183,7 @@ function Room(game){
 			//fit 2 booleans
 			//show simething else while true
 			//any button removes it then
+			//boolean before showing button
 
 		}else{
 			game.physics.arcade.collide(this.sprite, this.layer);
