@@ -184,6 +184,7 @@ function Room(game){
 			//show simething else while true
 			//any button removes it then
 			//boolean before showing button
+			//it should know if it is on screen or no
 
 		}else{
 			game.physics.arcade.collide(this.sprite, this.layer);
