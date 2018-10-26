@@ -186,6 +186,9 @@ function Room(game){
 			//boolean before showing button
 			//it should know if it is on screen or no
 			//its hard to program like that 
+			//time based might be better
+			//back to feedback
+			//and time based quota
 
 		}else{
 			game.physics.arcade.collide(this.sprite, this.layer);
