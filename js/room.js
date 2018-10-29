@@ -191,6 +191,7 @@ function Room(game){
 			//and time based quota
 			//how not to lose track of project
 			//need a way to qyickly test changes 
+			//full enviroment ready
 
 		}else{
 			game.physics.arcade.collide(this.sprite, this.layer);
