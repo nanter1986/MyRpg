@@ -192,6 +192,7 @@ function Room(game){
 			//how not to lose track of project
 			//need a way to qyickly test changes 
 			//full enviroment ready
+			//probably should go back to python music
 
 		}else{
 			game.physics.arcade.collide(this.sprite, this.layer);
