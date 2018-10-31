@@ -193,6 +193,7 @@ function Room(game){
 			//need a way to qyickly test changes 
 			//full enviroment ready
 			//probably should go back to python music
+			//command based strategy?
 
 		}else{
 			game.physics.arcade.collide(this.sprite, this.layer);
