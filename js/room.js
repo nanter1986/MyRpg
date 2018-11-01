@@ -194,6 +194,7 @@ function Room(game){
 			//full enviroment ready
 			//probably should go back to python music
 			//command based strategy?
+			//meditation music
 
 		}else{
 			game.physics.arcade.collide(this.sprite, this.layer);
