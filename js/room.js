@@ -196,6 +196,7 @@ function Room(game){
 			//command based strategy?
 			//meditation music
 			//anything useful
+			//frequent test and debugging
 
 		}else{
 			game.physics.arcade.collide(this.sprite, this.layer);
